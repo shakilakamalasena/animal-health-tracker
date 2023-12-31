@@ -1,0 +1,38 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Dec 30, 2023, 6:05:55 PM
+    Author     : Shakila Kamalasena
+*/
+
+.white-bg{
+    -fx-background-color: #fff;
+}
+
+.radius{
+    -fx-background-radius: 6px;
+}
+
+.textfiled-1{
+    -fx-border-color: #000;
+    -fx-border-width: .3px;
+    -fx-font-family: Tahoma;
+}
+
+.textfiled-1:focused{
+    -fx-border-color: #87a492;
+    -fx-border-width: 1px;
+}
+
+.btn-1{
+    -fx-background-color: linear-gradient(to bottom right, #6b8375, #a6c1a5);
+    -fx-cursor: hand;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+}
+
+.btn-1:hover{
+    -fx-background-color: linear-gradient(to bottom right, #7f9c8a, #a7c7a6);
+}
