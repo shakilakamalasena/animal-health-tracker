@@ -25,6 +25,8 @@ public class AnimalHealthTracker extends Application {
         stage.setMinWidth(700);
         stage.setMinHeight(500);
         
+        stage.setTitle("Animal Health Tracker");
+        
         stage.setScene(scene);
         stage.show();
     }
