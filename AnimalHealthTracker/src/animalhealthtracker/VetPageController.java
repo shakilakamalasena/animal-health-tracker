@@ -1,10 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package animalhealthtracker;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,13 +16,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-/**
- *
- * @author Shakila Kamalasena
- */
 public class VetPageController implements Initializable {
 
-    @FXML
+     @FXML
     private CheckBox login_checkBtn;
 
     @FXML
@@ -60,6 +55,9 @@ public class VetPageController implements Initializable {
     private AnchorPane register_form;
 
     @FXML
+    private TextField register_fullName;
+
+    @FXML
     private Hyperlink register_loginHere;
 
     @FXML
@@ -73,14 +71,47 @@ public class VetPageController implements Initializable {
 
     @FXML
     private TextField register_username;
+    
+    // DATABASE CONNECTIVITY
+    private Connection Connect;
+    private PreparedStatement Prepare;
+    private ResultSet result;
+
+    private final AlertMessage alert = new AlertMessage();
+    
 
     @FXML
-    void switchForm(ActionEvent event) {
+    void loginAccount(ActionEvent event) {
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    @FXML
+    void loginShowPassword(ActionEvent event) {
+
+    }
+
+    @FXML
+    void registerAccount(ActionEvent event) {
+
+    }
+
+    @FXML
+    void registerShowPassword(ActionEvent event) {
+
+    }
+
+    @FXML
+    void switchForm(ActionEvent event) {
+         if(event.getSource() == register_loginHere){
+             login_form.setVisible(true);
+             register_form.setVisible(false);
+         }else if(event.getSource() == login_registerHere){
+             login_form.setVisible(false);
+             register_form.setVisible(true);
+         }
+    }
+
+    public void initialize(URL locatio, ResourceBundle resources) {
 
     }
 
