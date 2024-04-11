@@ -89,7 +89,7 @@ public class VetPageController implements Initializable {
     private PreparedStatement prepare;
     private ResultSet result;
 
-    private final AlertMessage alert = new AlertMessage();
+    private AlertMessage alert = new AlertMessage();
 
     @FXML
     public void loginAccount() {
@@ -97,7 +97,7 @@ public class VetPageController implements Initializable {
         if (login_username.getText().isEmpty() || login_password.getText().isEmpty()) {
             alert.errorMessage("Incorrect Username/ Password");
         } else {
-            String sql = "SELECT * FROM admin WHERE username = ? AND password = ?";
+            String sql = "SELECT * FROM vet WHERE username = ? AND password = ?";
 
             connect = Database.connectDB();
 
@@ -236,13 +236,13 @@ public class VetPageController implements Initializable {
 
     // SWITCH PAGES WHEN THE USER TYPE CHANGES
     public void switchPage() {
-        if (login_user.getSelectionModel().getSelectedItem() == "Admin Portal") {
+        if (login_user.getSelectionModel().getSelectedItem() == "Veterinary Portal") {
 
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("VetPage.fxml"));
                 Stage stage = new Stage();
 
-                stage.setTitle("Animal Health Tracker (Admin Portal)");
+                stage.setTitle("Animal Health Tracker (Veterinary Portal)");
 
                 stage.setMinWidth(700);
                 stage.setMinHeight(500);
@@ -254,13 +254,13 @@ public class VetPageController implements Initializable {
                 e.printStackTrace();
             }
 
-        } else if (login_user.getSelectionModel().getSelectedItem() == "Veterinary Portal") {
+        } else if (login_user.getSelectionModel().getSelectedItem() == "Admin Portal") {
 
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("VetPage.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("AdminLoginPage.fxml"));
                 Stage stage = new Stage();
 
-                stage.setTitle("Animal Health Tracker (Veterinary Portal)");
+                stage.setTitle("Animal Health Tracker (Admin Portal)");
 
                 stage.setMinWidth(700);
                 stage.setMinHeight(500);
@@ -293,7 +293,7 @@ public class VetPageController implements Initializable {
 
     @Override
     public void initialize(URL locatio, ResourceBundle resources) {
-
+        userList();
     }
 
 }

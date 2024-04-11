@@ -233,7 +233,7 @@ public class AdminLoginPageController implements Initializable {
         if (login_user.getSelectionModel().getSelectedItem() == "Admin Portal") {
 
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("AdminLoginPage.fxml"));
                 Stage stage = new Stage();
 
                 stage.setTitle("Animal Health Tracker (Admin Portal)");
