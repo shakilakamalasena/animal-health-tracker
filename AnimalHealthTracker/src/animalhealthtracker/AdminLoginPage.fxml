@@ -42,7 +42,7 @@
                   <TextField fx:id="login_showPassword" layoutX="413.0" layoutY="208.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="textfiled-1" stylesheets="@../design/Styles.css" visible="false" />
                   <CheckBox fx:id="login_checkBtn" layoutX="420.0" layoutY="245.0" mnemonicParsing="false" onAction="#loginShowPassword" text="Show Password" />
                   <Button fx:id="login_loginBtn" layoutX="412.0" layoutY="296.0" mnemonicParsing="false" onAction="#loginAccount" prefHeight="40.0" prefWidth="220.0" styleClass="btn-1" stylesheets="@../design/Styles.css" text="Sign In" />
-                  <ComboBox fx:id="login_user" layoutX="450.0" layoutY="387.0" prefWidth="150.0" promptText="Select User" stylesheets="@../design/Styles.css">
+                  <ComboBox fx:id="login_user" layoutX="450.0" layoutY="387.0" onAction="#switchPage" prefWidth="150.0" promptText="Select User" stylesheets="@../design/Styles.css">
                      <styleClass>
                         <String fx:value="white-bg" />
                         <String fx:value="textfiled-1" />

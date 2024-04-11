@@ -126,7 +126,7 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="63.0" layoutY="49.0" prefHeight="650.0" prefWidth="940.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane layoutX="63.0" layoutY="49.0" prefHeight="650.0" prefWidth="940.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane layoutX="23.0" layoutY="25.0" prefHeight="200.0" prefWidth="891.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="25.0">
                                  <styleClass>
@@ -256,7 +256,7 @@
                               </TableView>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="650.0" prefWidth="940.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane prefHeight="650.0" prefWidth="940.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="626.0" prefWidth="911.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <styleClass>

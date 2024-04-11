@@ -4,6 +4,9 @@
  */
 package animalhealthtracker;
 
+import Components.Users;
+import Components.Database;
+import Components.AlertMessage;
 import com.mysql.jdbc.Connection;
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -33,7 +36,7 @@ import javafx.stage.Stage;
  *
  * @author Shakila Kamalasena
  */
-public class FXMLDocumentController implements Initializable {
+public class AdminLoginPageController implements Initializable {
 
     @FXML
     private CheckBox login_checkBtn;
@@ -144,7 +147,7 @@ public class FXMLDocumentController implements Initializable {
 
     public void registerAccount() {
         if (register_email.getText().isEmpty() || register_username.getText().isEmpty() || register_password.getText().isEmpty()) {
-            alert.errorMessage("Plaese fill all blank fields");
+            alert.errorMessage("Please fill all blank fields");
         } else {
             //CHECK WHETHER THE ENTERED USERNAME ALREADY EXISTS
             String checkUsername = "SELECT * FROM admin WHERE username = '" + register_username.getText() + "'";
@@ -225,6 +228,7 @@ public class FXMLDocumentController implements Initializable {
         login_user.setItems(listData);
     }
 
+    // SWITCH PAGES WHEN THE USER TYPE CHANGES
     public void switchPage() {
         if (login_user.getSelectionModel().getSelectedItem() == "Admin Portal") {
 
@@ -232,7 +236,7 @@ public class FXMLDocumentController implements Initializable {
                 Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
                 Stage stage = new Stage();
 
-                stage.setTitle("Animal Health Tracker");
+                stage.setTitle("Animal Health Tracker (Admin Portal)");
 
                 stage.setMinWidth(700);
                 stage.setMinHeight(500);
@@ -250,7 +254,7 @@ public class FXMLDocumentController implements Initializable {
                 Parent root = FXMLLoader.load(getClass().getResource("VetPage.fxml"));
                 Stage stage = new Stage();
 
-                stage.setTitle("Animal Health Tracker");
+                stage.setTitle("Animal Health Tracker (Veterinary Portal)");
 
                 stage.setMinWidth(700);
                 stage.setMinHeight(500);
@@ -264,6 +268,7 @@ public class FXMLDocumentController implements Initializable {
 
         }
 
+        // CLOSE SELECTED USER TYPE WINDOW
         login_user.getScene().getWindow().hide();
 
     }
