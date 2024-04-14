@@ -1,8 +1,5 @@
 package animalhealthtracker;
 
-import Components.Users;
-import Components.Database;
-import Components.AlertMessage;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -89,7 +86,7 @@ public class VetPageController implements Initializable {
     private PreparedStatement prepare;
     private ResultSet result;
 
-    private AlertMessage alert = new AlertMessage();
+    private final AlertMessage alert = new AlertMessage();
 
     @FXML
     public void loginAccount() {
@@ -97,7 +94,7 @@ public class VetPageController implements Initializable {
         if (login_username.getText().isEmpty() || login_password.getText().isEmpty()) {
             alert.errorMessage("Incorrect Username/ Password");
         } else {
-            String sql = "SELECT * FROM vet WHERE username = ? AND password = ?";
+            String sql = "SELECT * FROM admin WHERE username = ? AND password = ?";
 
             connect = Database.connectDB();
 
@@ -257,7 +254,7 @@ public class VetPageController implements Initializable {
         } else if (login_user.getSelectionModel().getSelectedItem() == "Admin Portal") {
 
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("AdminLoginPage.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
                 Stage stage = new Stage();
 
                 stage.setTitle("Animal Health Tracker (Admin Portal)");
@@ -291,7 +288,6 @@ public class VetPageController implements Initializable {
         }
     }
 
-    @Override
     public void initialize(URL locatio, ResourceBundle resources) {
         userList();
     }
