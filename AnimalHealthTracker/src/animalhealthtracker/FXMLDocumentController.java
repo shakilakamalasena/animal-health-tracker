@@ -120,6 +120,18 @@ public class FXMLDocumentController implements Initializable {
                 if (result.next()) {
                     //IF THE ENTERED USERNAME AND PASSWORD ARE CORRECT
                     alert.successMessage("Login Successfully!");
+
+                    //GO TO ADMIN MAIN FORM IF THE CREDINTIALS ARE OK
+                    Parent root = FXMLLoader.load(getClass().getResource("AdminMainForm.fxml"));
+                    Stage stage = new Stage();
+
+                    stage.setTitle("Animal Health Tracker | Admin portal");
+                    stage.setScene(new Scene(root));
+
+                    stage.show();
+
+                    //TO CLOSE THE ADMIN LOGIN PAGE
+                    login_loginBtn.getScene().getWindow().hide();
                 } else {
                     //IF THE ENTERED USERNAME OR PASSWORD IS INCORRECT
                     alert.errorMessage("Incorrect Username/ Password");

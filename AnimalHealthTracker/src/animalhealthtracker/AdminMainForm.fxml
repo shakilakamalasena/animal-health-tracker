@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="animalhealthtracker.AdminMainFromController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -52,12 +52,12 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="839.0" layoutY="13.0" prefHeight="17.0" prefWidth="212.0" text="Shakila" AnchorPane.rightAnchor="149.0">
+                        <Label layoutX="839.0" layoutY="13.0" prefHeight="17.0" prefWidth="212.0" text="AdminName" AnchorPane.rightAnchor="149.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" layoutX="496.0" layoutY="15.0" prefHeight="17.0" prefWidth="242.0" text="MM:DD:YYYY" AnchorPane.rightAnchor="462.0">
+                        <Label fx:id="date_time" alignment="CENTER_RIGHT" layoutX="496.0" layoutY="15.0" prefHeight="17.0" prefWidth="242.0" text="MM:DD:YYYY" AnchorPane.rightAnchor="462.0">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -94,7 +94,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="101.0" layoutY="158.0" prefHeight="20.0" prefWidth="152.0" text="shakila" textFill="WHITE">
+                        <Label layoutX="101.0" layoutY="158.0" prefHeight="20.0" prefWidth="152.0" text="AdminName" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
