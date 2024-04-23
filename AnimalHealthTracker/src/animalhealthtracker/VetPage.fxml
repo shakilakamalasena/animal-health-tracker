@@ -19,7 +19,7 @@
    <children>
       <AnchorPane fx:id="main_form" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="500.0" prefWidth="700.0">
          <children>
-            <AnchorPane fx:id="login_form" layoutY="122.0" prefHeight="500.0" prefWidth="700.0" styleClass="white-bg" stylesheets="@../design/Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="login_form" layoutY="122.0" prefHeight="500.0" prefWidth="700.0" styleClass="white-bg" stylesheets="@../design/Styles.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label layoutX="460.0" layoutY="85.0" text="Login Account">
                      <font>
@@ -58,44 +58,62 @@
                   <FontAwesomeIcon fill="#798a78" glyphName="USER" layoutX="501.0" layoutY="65.0" size="5em" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="register_form" layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="700.0" styleClass="white-bg" stylesheets="@../design/Styles.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="register_form" layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="700.0" styleClass="white-bg" stylesheets="@../design/Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label layoutX="457.0" layoutY="85.0" text="Create Account">
+                  <Label layoutX="507.0" layoutY="26.0" text="Create Account">
                      <font>
                         <Font name="Tahoma" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="480.0" layoutY="117.0" text="Veterinary Portal" />
-                  <TextField fx:id="register_username" layoutX="412.0" layoutY="239.0" prefHeight="30.0" prefWidth="220.0" promptText="Username (VET-XXXX)" stylesheets="@../design/Styles.css">
+                  <Label layoutX="530.0" layoutY="58.0" text="Veterinary Portal" />
+                  <TextField fx:id="register_gender" layoutX="412.0" layoutY="174.0" prefHeight="30.0" prefWidth="220.0" promptText="Gender" stylesheets="@../design/Styles.css">
                      <styleClass>
                         <String fx:value="textfiled-1" />
                         <String fx:value="white-bg" />
                      </styleClass>
                   </TextField>
-                  <PasswordField fx:id="register_password" layoutX="413.0" layoutY="282.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" stylesheets="@../design/Styles.css">
+                  <PasswordField fx:id="register_password" layoutX="413.0" layoutY="347.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" stylesheets="@../design/Styles.css">
                      <styleClass>
                         <String fx:value="textfiled-1" />
                         <String fx:value="white-bg" />
                      </styleClass>
                   </PasswordField>
-                  <TextField fx:id="register_showPassword" layoutX="412.0" layoutY="282.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="textfiled-1" stylesheets="@../design/Styles.css" visible="false" />
-                  <CheckBox fx:id="register_checkBox" layoutX="420.0" layoutY="319.0" mnemonicParsing="false" onAction="#registerShowPassword" text="Show Password" />
-                  <Button fx:id="register_signupBtn" layoutX="412.0" layoutY="370.0" mnemonicParsing="false" onAction="#registerAccount" prefHeight="40.0" prefWidth="220.0" styleClass="btn-1" stylesheets="@../design/Styles.css" text="Sign Up" />
-                  <Label layoutX="404.0" layoutY="454.0" text="Already have an account?" />
-                  <Hyperlink fx:id="register_loginHere" layoutX="573.0" layoutY="451.0" onAction="#switchPage" text="Login Now" />
+                  <TextField fx:id="register_showPassword" layoutX="413.0" layoutY="347.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="textfiled-1" stylesheets="@../design/Styles.css" visible="false" />
+                  <CheckBox fx:id="register_checkBox" layoutX="420.0" layoutY="386.0" mnemonicParsing="false" onAction="#registerShowPassword" text="Show Password" />
+                  <Button fx:id="register_signupBtn" layoutX="412.0" layoutY="411.0" mnemonicParsing="false" onAction="#registerAccount" prefHeight="40.0" prefWidth="220.0" styleClass="btn-1" stylesheets="@../design/Styles.css" text="Sign Up" />
+                  <Label layoutX="404.0" layoutY="467.0" text="Already have an account?" />
+                  <Hyperlink fx:id="register_loginHere" layoutX="573.0" layoutY="464.0" onAction="#switchPage" text="Login Now" />
                   <ImageView fitHeight="500.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../design/ANIMAL.png" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="register_email" layoutX="412.0" layoutY="196.0" prefHeight="30.0" prefWidth="220.0" promptText="Email (someone@example.com)" stylesheets="@../design/Styles.css">
+                  <TextField fx:id="register_lname" layoutX="412.0" layoutY="131.0" prefHeight="30.0" prefWidth="220.0" promptText="Last Name" stylesheets="@../design/Styles.css">
                      <styleClass>
                         <String fx:value="textfiled-1" />
                         <String fx:value="white-bg" />
                      </styleClass>
                   </TextField>
-                  <FontAwesomeIcon fill="#8ea18d" glyphName="USER_PLUS" layoutX="490.0" layoutY="65.0" size="5em" />
-                  <TextField fx:id="register_fullName" layoutX="412.0" layoutY="155.0" prefHeight="30.0" prefWidth="220.0" promptText="Full Name" stylesheets="@../design/Styles.css">
+                  <FontAwesomeIcon fill="#8ea18d" glyphName="USER_PLUS" layoutX="398.0" layoutY="69.0" size="5em" />
+                  <TextField fx:id="register_fname" layoutX="412.0" layoutY="90.0" prefHeight="30.0" prefWidth="220.0" promptText="First Name" stylesheets="@../design/Styles.css">
+                     <styleClass>
+                        <String fx:value="textfiled-1" />
+                        <String fx:value="white-bg" />
+                     </styleClass>
+                  </TextField>
+                  <TextField fx:id="register_username" layoutX="412.0" layoutY="304.0" prefHeight="30.0" prefWidth="220.0" promptText="Username (VET-XXXX)" stylesheets="@../design/Styles.css">
+                     <styleClass>
+                        <String fx:value="textfiled-1" />
+                        <String fx:value="white-bg" />
+                     </styleClass>
+                  </TextField>
+                  <TextField fx:id="register_specialization" layoutX="412.0" layoutY="261.0" prefHeight="30.0" prefWidth="220.0" promptText="Specialization" stylesheets="@../design/Styles.css">
+                     <styleClass>
+                        <String fx:value="textfiled-1" />
+                        <String fx:value="white-bg" />
+                     </styleClass>
+                  </TextField>
+                  <TextField fx:id="register_phone" layoutX="412.0" layoutY="217.0" prefHeight="30.0" prefWidth="220.0" promptText="Phone #" stylesheets="@../design/Styles.css">
                      <styleClass>
                         <String fx:value="textfiled-1" />
                         <String fx:value="white-bg" />

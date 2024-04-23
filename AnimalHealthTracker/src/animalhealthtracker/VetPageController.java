@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -58,13 +59,16 @@ public class VetPageController implements Initializable {
     private CheckBox register_checkBox;
 
     @FXML
-    private TextField register_email;
+    private TextField register_fname;
 
     @FXML
     private AnchorPane register_form;
 
     @FXML
-    private TextField register_fullName;
+    private TextField register_gender;
+
+    @FXML
+    private TextField register_lname;
 
     @FXML
     private Hyperlink register_loginHere;
@@ -73,10 +77,16 @@ public class VetPageController implements Initializable {
     private PasswordField register_password;
 
     @FXML
+    private TextField register_phone;
+
+    @FXML
     private TextField register_showPassword;
 
     @FXML
     private Button register_signupBtn;
+
+    @FXML
+    private TextField register_specialization;
 
     @FXML
     private TextField register_username;
@@ -146,7 +156,7 @@ public class VetPageController implements Initializable {
     @FXML
     public void registerAccount() {
 
-        if (register_fullName.getText().isEmpty() || register_email.getText().isEmpty() || register_username.getText().isEmpty() || register_password.getText().isEmpty()) {
+        if (register_fname.getText().isEmpty() || register_specialization.getText().isEmpty() || register_username.getText().isEmpty() || register_password.getText().isEmpty()) {
             alert.errorMessage("Please fill all blank fields");
         } else {
             //CHECK WHETHER THE ENTERED USERNAME ALREADY EXISTS
@@ -174,13 +184,20 @@ public class VetPageController implements Initializable {
                     alert.errorMessage("Password must be atleast 8 characters");
                 } else {
                     //INSERTING USERDATA TO THE DATABASE
-                    String insertData = "INSERT INTO vet(fullName, email, username, password) VALUES(?, ?, ?, ?)";
+                    String insertData = "INSERT INTO vet(firstName, lastName, gender, phoneNo, specialization, username, password, date) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 
+                    Date date = new Date();
+                    java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+                    
                     prepare = connect.prepareStatement(insertData);
-                    prepare.setString(1, register_fullName.getText());
-                    prepare.setString(2, register_email.getText());
-                    prepare.setString(3, register_username.getText());
-                    prepare.setString(4, register_password.getText());
+                    prepare.setString(1, register_fname.getText());
+                    prepare.setString(2, register_lname.getText());
+                    prepare.setString(3, register_gender.getText());
+                    prepare.setString(4, register_phone.getText());
+                    prepare.setString(5, register_specialization.getText());
+                    prepare.setString(6, register_username.getText());
+                    prepare.setString(7, register_password.getText());
+                    prepare.setString(8, String.valueOf(sqlDate));
 
                     prepare.executeUpdate();
 
@@ -201,7 +218,11 @@ public class VetPageController implements Initializable {
     }
 
     public void registerClear() {
-        register_email.clear();
+        register_fname.clear();
+        register_lname.clear();
+        register_gender.clear();
+        register_phone.clear();
+        register_specialization.clear();
         register_username.clear();
         register_password.clear();
         register_showPassword.clear();
