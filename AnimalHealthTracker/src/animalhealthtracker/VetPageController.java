@@ -65,7 +65,7 @@ public class VetPageController implements Initializable {
     private AnchorPane register_form;
 
     @FXML
-    private TextField register_gender;
+    private ComboBox<?> register_gender;
 
     @FXML
     private TextField register_lname;
@@ -86,7 +86,7 @@ public class VetPageController implements Initializable {
     private Button register_signupBtn;
 
     @FXML
-    private TextField register_specialization;
+    private ComboBox<?> register_specialization;
 
     @FXML
     private TextField register_username;
@@ -98,6 +98,32 @@ public class VetPageController implements Initializable {
 
     private final AlertMessage alert = new AlertMessage();
 
+    private final String[] listGender = {"Male", "Female", "Others"};
+    @FXML
+    public void registerGenderList() {
+        List<String> listG = new ArrayList<>();
+
+        for(String data: listGender) {
+            listG.add(data);
+        }
+
+        ObservableList listData = FXCollections.observableArrayList(listG);
+        register_gender.setItems(listData);
+    }
+    
+    private final String[] listSpecialization = {"Large/Small", "Avian & Exotic", "Wildlife", "Surgery", "Pathology", "Others"};
+    @FXML
+    public void registerSpecializationList() {
+        List<String> listS = new ArrayList<>();
+
+        for(String data: listSpecialization) {
+            listS.add(data);
+        }
+
+        ObservableList listData = FXCollections.observableArrayList(listS);
+        register_specialization.setItems(listData);
+    }
+    
     @FXML
     public void loginAccount() {
 
@@ -156,7 +182,13 @@ public class VetPageController implements Initializable {
     @FXML
     public void registerAccount() {
 
-        if (register_fname.getText().isEmpty() || register_specialization.getText().isEmpty() || register_username.getText().isEmpty() || register_password.getText().isEmpty()) {
+        if (register_fname.getText().isEmpty() 
+                || register_lname.getText().isEmpty()
+                || register_gender.getSelectionModel().getSelectedItem() == null
+                || register_phone.getText().isEmpty()
+                || register_specialization.getSelectionModel().getSelectedItem() == null
+                || register_username.getText().isEmpty() 
+                || register_password.getText().isEmpty()) {
             alert.errorMessage("Please fill all blank fields");
         } else {
             //CHECK WHETHER THE ENTERED USERNAME ALREADY EXISTS
@@ -192,9 +224,9 @@ public class VetPageController implements Initializable {
                     prepare = connect.prepareStatement(insertData);
                     prepare.setString(1, register_fname.getText());
                     prepare.setString(2, register_lname.getText());
-                    prepare.setString(3, register_gender.getText());
+                    prepare.setString(3, (String) register_gender.getSelectionModel().getSelectedItem());
                     prepare.setString(4, register_phone.getText());
-                    prepare.setString(5, register_specialization.getText());
+                    prepare.setString(5, (String) register_specialization.getSelectionModel().getSelectedItem());
                     prepare.setString(6, register_username.getText());
                     prepare.setString(7, register_password.getText());
                     prepare.setString(8, String.valueOf(sqlDate));
@@ -220,9 +252,9 @@ public class VetPageController implements Initializable {
     public void registerClear() {
         register_fname.clear();
         register_lname.clear();
-        register_gender.clear();
+        register_gender.getSelectionModel().clearSelection();
         register_phone.clear();
-        register_specialization.clear();
+        register_specialization.getSelectionModel().clearSelection();
         register_username.clear();
         register_password.clear();
         register_showPassword.clear();
@@ -311,6 +343,8 @@ public class VetPageController implements Initializable {
 
     public void initialize(URL locatio, ResourceBundle resources) {
         userList();
+        registerGenderList();
+        registerSpecializationList();
     }
 
 }

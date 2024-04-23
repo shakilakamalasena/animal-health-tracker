@@ -66,12 +66,6 @@
                      </font>
                   </Label>
                   <Label layoutX="530.0" layoutY="58.0" text="Veterinary Portal" />
-                  <TextField fx:id="register_gender" layoutX="412.0" layoutY="174.0" prefHeight="30.0" prefWidth="220.0" promptText="Gender" stylesheets="@../design/Styles.css">
-                     <styleClass>
-                        <String fx:value="textfiled-1" />
-                        <String fx:value="white-bg" />
-                     </styleClass>
-                  </TextField>
                   <PasswordField fx:id="register_password" layoutX="413.0" layoutY="347.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" stylesheets="@../design/Styles.css">
                      <styleClass>
                         <String fx:value="textfiled-1" />
@@ -107,18 +101,14 @@
                         <String fx:value="white-bg" />
                      </styleClass>
                   </TextField>
-                  <TextField fx:id="register_specialization" layoutX="412.0" layoutY="261.0" prefHeight="30.0" prefWidth="220.0" promptText="Specialization" stylesheets="@../design/Styles.css">
-                     <styleClass>
-                        <String fx:value="textfiled-1" />
-                        <String fx:value="white-bg" />
-                     </styleClass>
-                  </TextField>
                   <TextField fx:id="register_phone" layoutX="412.0" layoutY="217.0" prefHeight="30.0" prefWidth="220.0" promptText="Phone #" stylesheets="@../design/Styles.css">
                      <styleClass>
                         <String fx:value="textfiled-1" />
                         <String fx:value="white-bg" />
                      </styleClass>
                   </TextField>
+                  <ComboBox fx:id="register_gender" layoutX="412.0" layoutY="174.0" onAction="#registerGenderList" prefHeight="30.0" prefWidth="220.0" promptText="Choose Gender" />
+                  <ComboBox fx:id="register_specialization" layoutX="412.0" layoutY="260.0" onAction="#registerSpecializationList" prefHeight="30.0" prefWidth="220.0" promptText="Choose Specialization" />
                </children>
             </AnchorPane>
          </children>
