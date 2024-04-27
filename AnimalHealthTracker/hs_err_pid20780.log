@@ -1,0 +1,197 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32744 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:272), pid=20780, tid=0x0000000000000a34
+#
+# JRE version: OpenJDK Runtime Environment (Zulu 8.74.0.17-CA-win64) (8.0_392-b08) (build 1.8.0_392-b08)
+# Java VM: OpenJDK 64-Bit Server VM (25.392-b08 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000021ffbc92000):  JavaThread "C1 CompilerThread3" daemon [_thread_in_native, id=2612, stack(0x0000006b5f100000,0x0000006b5f200000)]
+
+Stack: [0x0000006b5f100000,0x0000006b5f200000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+Current CompileTask:
+C1:     88  157       3       jdk.internal.org.objectweb.asm.Frame::execute (2252 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000021ffe184000 JavaThread "Service Thread" daemon [_thread_blocked, id=36664, stack(0x0000006b5f200000,0x0000006b5f300000)]
+=>0x0000021ffbc92000 JavaThread "C1 CompilerThread3" daemon [_thread_in_native, id=2612, stack(0x0000006b5f100000,0x0000006b5f200000)]
+  0x0000021ffbc8d000 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=29088, stack(0x0000006b5f000000,0x0000006b5f100000)]
+  0x0000021ffbc8c800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=8964, stack(0x0000006b5ef00000,0x0000006b5f000000)]
+  0x0000021ffbc8a800 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=38524, stack(0x0000006b5ee00000,0x0000006b5ef00000)]
+  0x0000021ffbc84000 JavaThread "Attach Listener" daemon [_thread_blocked, id=38336, stack(0x0000006b5ed00000,0x0000006b5ee00000)]
+  0x0000021ffbc83000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=18372, stack(0x0000006b5ec00000,0x0000006b5ed00000)]
+  0x0000021ffbc56800 JavaThread "Finalizer" daemon [_thread_blocked, id=16008, stack(0x0000006b5eb00000,0x0000006b5ec00000)]
+  0x0000021ffbc4f800 JavaThread "Reference Handler" daemon [_thread_blocked, id=33244, stack(0x0000006b5ea00000,0x0000006b5eb00000)]
+  0x0000021fe8f38800 JavaThread "main" [_thread_in_vm, id=7444, stack(0x0000006b5de00000,0x0000006b5df00000)]
+
+Other Threads:
+  0x0000021ffbc29000 VMThread [stack: 0x0000006b5e900000,0x0000006b5ea00000] [id=4344]
+  0x0000021ffe185000 WatcherThread [stack: 0x0000006b5f300000,0x0000006b5f400000] [id=6844]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x00000006c2c00000, size: 4052 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x00000007c0000000
+
+Heap:
+ PSYoungGen      total 75776K, used 3901K [0x000000076b980000, 0x0000000770e00000, 0x00000007c0000000)
+  eden space 65024K, 6% used [0x000000076b980000,0x000000076bd4f668,0x000000076f900000)
+  from space 10752K, 0% used [0x0000000770380000,0x0000000770380000,0x0000000770e00000)
+  to   space 10752K, 0% used [0x000000076f900000,0x000000076f900000,0x0000000770380000)
+ ParOldGen       total 173568K, used 0K [0x00000006c2c00000, 0x00000006cd580000, 0x000000076b980000)
+  object space 173568K, 0% used [0x00000006c2c00000,0x00000006c2c00000,0x00000006cd580000)
+ Metaspace       used 3832K, capacity 4678K, committed 4864K, reserved 1056768K
+  class space    used 410K, capacity 449K, committed 512K, reserved 1048576K
+
+Card table byte_map: [0x0000021ff9c40000,0x0000021ffa430000] byte_map_base: 0x0000021ff662a000
+
+Marking Bits: (ParMarkBitMap*) 0x0000000074c963c0
+ Begin Bits: [0x0000021f80000000, 0x0000021f83f50000)
+ End Bits:   [0x0000021f83f50000, 0x0000021f87ea0000)
+
+Polling page: 0x0000021fea850000
+
+CodeCache: size=245760Kb used=1325Kb max_used=1325Kb free=244434Kb
+ bounds [0x0000021fea880000, 0x0000021feaaf0000, 0x0000021ff9880000]
+ total_blobs=432 nmethods=167 adapters=177
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 0.084 Thread 0x0000021ffbc92000  142       3       java.lang.reflect.Modifier::isStatic (13 bytes)
+Event: 0.084 Thread 0x0000021ffbc92000 nmethod 142 0x0000021fea9c6790 code [0x0000021fea9c68e0, 0x0000021fea9c6a78]
+Event: 0.084 Thread 0x0000021ffbc92000  143       3       java.lang.invoke.MemberName::isStatic (8 bytes)
+Event: 0.084 Thread 0x0000021ffbc92000 nmethod 143 0x0000021fea9c6b10 code [0x0000021fea9c6c80, 0x0000021fea9c6e98]
+Event: 0.084 Thread 0x0000021ffbc92000  154       3       java.lang.invoke.MemberName::getMethodOrFieldType (72 bytes)
+Event: 0.085 Thread 0x0000021ffbc92000 nmethod 154 0x0000021fea9c73d0 code [0x0000021fea9c76c0, 0x0000021fea9c8e10]
+Event: 0.085 Thread 0x0000021ffbc92000  156       3       jdk.internal.org.objectweb.asm.Item::isEqualTo (354 bytes)
+Event: 0.085 Thread 0x0000021ffbc92000 nmethod 156 0x0000021fea9c9950 code [0x0000021fea9c9b80, 0x0000021fea9ca890]
+Event: 0.085 Thread 0x0000021ffbc92000  157       3       jdk.internal.org.objectweb.asm.Frame::execute (2252 bytes)
+Event: 0.087 Thread 0x0000021ffbc8a800  173       4       jdk.internal.org.objectweb.asm.ByteVector::putUTF8 (142 bytes)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (3 events):
+Event: 0.019 Thread 0x0000021fe8f38800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x000000076b987ce0) thrown at [C:\jenkins\workspace\Zulu\zulu-platform-build\zulu-src.git\hotspot\sr
+Event: 0.019 Thread 0x0000021fe8f38800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x000000076b987fc8) thrown at [C:\jenkins\workspace\Zulu\zulu-platform-build\zulu-src.git\hotspot\src\share\vm\prims\j
+Event: 0.086 Thread 0x0000021fe8f38800 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x000000076bc6c260) thrown at [C:\jenkins\workspace\Zulu\zulu-platform-build\zulu-src.git\hotspot\src\share\vm\prims\methodHandles.cpp, line 1194]
+
+Events (10 events):
+Event: 0.078 loading class java/lang/invoke/DelegatingMethodHandle done
+Event: 0.078 loading class java/lang/invoke/MethodHandleImpl$AsVarargsCollector done
+Event: 0.078 loading class java/lang/invoke/WrongMethodTypeException
+Event: 0.078 loading class java/lang/invoke/WrongMethodTypeException done
+Event: 0.079 loading class java/lang/invoke/MethodHandleImpl$Lazy
+Event: 0.079 loading class java/lang/invoke/MethodHandleImpl$Lazy done
+Event: 0.079 loading class java/lang/invoke/MethodHandleImpl$IntrinsicMethodHandle
+Event: 0.079 loading class java/lang/invoke/MethodHandleImpl$IntrinsicMethodHandle done
+Event: 0.086 loading class java/lang/NoSuchFieldError
+Event: 0.086 loading class java/lang/NoSuchFieldError done
+
+
+Dynamic libraries:
+0x00007ff656950000 - 0x00007ff6569a0000 	C:\Program Files\Java\zulu8.74.0.17-ca-fx-jdk8.0.392-win_x64\bin\java.exe
+0x00007ff8efd70000 - 0x00007ff8eff86000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ff8eee10000 - 0x00007ff8eeed4000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ff8ed090000 - 0x00007ff8ed437000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ff8efc70000 - 0x00007ff8efd22000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ff8eec20000 - 0x00007ff8eecc7000 	C:\Windows\System32\msvcrt.dll
+0x00007ff8edaa0000 - 0x00007ff8edb48000 	C:\Windows\System32\sechost.dll
+0x00007ff8ed9f0000 - 0x00007ff8eda18000 	C:\Windows\System32\bcrypt.dll
+0x00007ff8ee3b0000 - 0x00007ff8ee4c5000 	C:\Windows\System32\RPCRT4.dll
+0x00007ff8ee570000 - 0x00007ff8ee71e000 	C:\Windows\System32\USER32.dll
+0x00007ff8ed720000 - 0x00007ff8ed746000 	C:\Windows\System32\win32u.dll
+0x00007ff8ee9a0000 - 0x00007ff8ee9c9000 	C:\Windows\System32\GDI32.dll
+0x00007ff8ed4e0000 - 0x00007ff8ed5f9000 	C:\Windows\System32\gdi32full.dll
+0x00007ff8ed440000 - 0x00007ff8ed4da000 	C:\Windows\System32\msvcp_win.dll
+0x00007ff8ed600000 - 0x00007ff8ed711000 	C:\Windows\System32\ucrtbase.dll
+0x00007ff8cf850000 - 0x00007ff8cfae3000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.3235_none_270f74e173860f98\COMCTL32.dll
+0x00007ff8eedd0000 - 0x00007ff8eee01000 	C:\Windows\System32\IMM32.DLL
+0x00007ff8c17a0000 - 0x00007ff8c17b5000 	C:\Program Files\Java\zulu8.74.0.17-ca-fx-jdk8.0.392-win_x64\jre\bin\vcruntime140.dll
+0x00007ff881170000 - 0x00007ff88120b000 	C:\Program Files\Java\zulu8.74.0.17-ca-fx-jdk8.0.392-win_x64\jre\bin\msvcp140.dll
+0x00000000744a0000 - 0x0000000074d11000 	C:\Program Files\Java\zulu8.74.0.17-ca-fx-jdk8.0.392-win_x64\jre\bin\server\jvm.dll
+0x00007ff8ee730000 - 0x00007ff8ee738000 	C:\Windows\System32\PSAPI.DLL
+0x00007ff8d0fe0000 - 0x00007ff8d0fe9000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ff8cf810000 - 0x00007ff8cf844000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ff8e7100000 - 0x00007ff8e710a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ff8ee740000 - 0x00007ff8ee7b1000 	C:\Windows\System32\WS2_32.dll
+0x00007ff8ec180000 - 0x00007ff8ec198000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ff8e0d20000 - 0x00007ff8e0d30000 	C:\Program Files\Java\zulu8.74.0.17-ca-fx-jdk8.0.392-win_x64\jre\bin\verify.dll
+0x00007ff8c1770000 - 0x00007ff8c179b000 	C:\Program Files\Java\zulu8.74.0.17-ca-fx-jdk8.0.392-win_x64\jre\bin\java.dll
+0x00007ff8b38d0000 - 0x00007ff8b38e8000 	C:\Program Files\Java\zulu8.74.0.17-ca-fx-jdk8.0.392-win_x64\jre\bin\zip.dll
+0x00007ff8edb50000 - 0x00007ff8ee3ac000 	C:\Windows\System32\SHELL32.dll
+0x00007ff8eafb0000 - 0x00007ff8eb8a9000 	C:\Windows\SYSTEM32\windows.storage.dll
+0x00007ff8ef3b0000 - 0x00007ff8ef738000 	C:\Windows\System32\combase.dll
+0x00007ff8eae70000 - 0x00007ff8eafae000 	C:\Windows\SYSTEM32\wintypes.dll
+0x00007ff8eecd0000 - 0x00007ff8eedc3000 	C:\Windows\System32\SHCORE.dll
+0x00007ff8ee4f0000 - 0x00007ff8ee54e000 	C:\Windows\System32\shlwapi.dll
+0x00007ff8ecfc0000 - 0x00007ff8ecfe1000 	C:\Windows\SYSTEM32\profapi.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 
+java_command: E:\L2S1 Others\oop-project\AnimalHealthTracker\dist\run488286126\AnimalHealthTracker.jar
+java_class_path (initial): E:\L2S1 Others\oop-project\AnimalHealthTracker\dist\run488286126\AnimalHealthTracker.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\zulu-17\
+PATH=C:\Program Files\Java\zulu-17\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;C:\Program Files\MATLAB\R2023b\bin;C:\Program Files\dotnet\;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\Program Files\Go\bin;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Maven\apache-maven-3.9.6\bin;C:\Program Files\PowerShell\7\;C:\Users\Shakila Kamalasena\AppData\Local\Microsoft\WindowsApps;C:\Users\Shakila Kamalasena\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\CodeBlocks\MinGW\bin;C:\Users\Shakila Kamalasena\AppData\Local\GitHubDesktop\bin;C:\Users\Shakila Kamalasena\AppData\Local\Programs\MiKTeX\miktex\bin\x64\;C:\Users\Shakila Kamalasena\go\bin;C:\Users\Shakila Kamalasena\AppData\Roaming\npm
+USERNAME=Shakila Kamalasena
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 165 Stepping 2, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 11 , 64 bit Build 22621 (10.0.22621.3374)
+HyperV virtualization detected
+
+CPU:total 12 (initial active 12) (6 cores per cpu, 2 threads per core) family 6 model 165 stepping 2, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 16593632k(2594060k free), swap 47664092k(5124k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.392-b08) for windows-amd64 JRE (Zulu 8.74.0.17-CA-win64) (1.8.0_392-b08), built on Oct  8 2023 10:30:11 by "abrygin" with MS VC++ 15.9 (VS2017)
+
+time: Thu Apr 25 22:00:27 2024
+timezone: Sri Lanka Standard Time
+elapsed time: 0.089688 seconds (0d 0h 0m 0s)
+

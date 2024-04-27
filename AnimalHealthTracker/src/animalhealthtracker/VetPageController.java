@@ -1,7 +1,8 @@
 package animalhealthtracker;
 
+import com.mysql.jdbc.Connection;
 import java.net.URL;
-import java.sql.Connection;
+//import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -24,7 +25,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import static javax.management.remote.JMXConnectorFactory.connect;
 
 public class VetPageController implements Initializable {
 
@@ -90,6 +90,7 @@ public class VetPageController implements Initializable {
 
     @FXML
     private TextField register_username;
+    
 
     // DATABASE CONNECTIVITY
     private Connection connect;
@@ -130,7 +131,7 @@ public class VetPageController implements Initializable {
         if (login_username.getText().isEmpty() || login_password.getText().isEmpty()) {
             alert.errorMessage("Incorrect Username/ Password");
         } else {
-            String sql = "SELECT * FROM admin WHERE username = ? AND password = ?";
+            String sql = "SELECT * FROM vet WHERE username = ? AND password = ?";
 
             connect = Database.connectDB();
 
@@ -151,15 +152,36 @@ public class VetPageController implements Initializable {
                 result = prepare.executeQuery();
 
                 if (result.next()) {
+                    getData.username = login_username.getText();
                     //IF THE ENTERED USERNAME AND PASSWORD ARE CORRECT
                     alert.successMessage("Login Successfully!");
+                    
+                    //GO TO VET MAIN FORM IF THE CREDINTIALS ARE OK
+                    Parent root = FXMLLoader.load(getClass().getResource("VetMainForm.fxml"));
+                    Stage stage = new Stage();
+
+                    stage.setTitle("Animal Health Tracker | Veterinarian portal");
+                    
+                    stage.setMinWidth(1400);
+                    stage.setMinHeight(750);
+                    
+                    stage.setScene(new Scene(root));
+                    stage.show();
+
+                    //TO CLOSE THE VET LOGIN PAGE
+                    login_loginBtn.getScene().getWindow().hide();
+                    
                 } else {
                     //IF THE ENTERED USERNAME OR PASSWORD IS INCORRECT
                     alert.errorMessage("Incorrect Username/ Password");
                 }
+                
+                connect.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            
+            
         }
         
     }
@@ -240,6 +262,8 @@ public class VetPageController implements Initializable {
                     login_form.setVisible(true);
                     register_form.setVisible(false);
 
+                    
+                    connect.close();
                 }
 
             } catch (Exception e) {
@@ -341,6 +365,7 @@ public class VetPageController implements Initializable {
         }
     }
 
+    @Override
     public void initialize(URL locatio, ResourceBundle resources) {
         userList();
         registerGenderList();

@@ -118,6 +118,8 @@ public class FXMLDocumentController implements Initializable {
                 result = prepare.executeQuery();
 
                 if (result.next()) {
+                    getData.username = login_username.getText();
+                    
                     //IF THE ENTERED USERNAME AND PASSWORD ARE CORRECT
                     alert.successMessage("Login Successfully!");
 

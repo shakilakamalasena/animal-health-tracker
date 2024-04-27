@@ -19,7 +19,7 @@
    <children>
       <AnchorPane fx:id="main_form" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="500.0" prefWidth="700.0">
          <children>
-            <AnchorPane fx:id="login_form" layoutY="122.0" prefHeight="500.0" prefWidth="700.0" styleClass="white-bg" stylesheets="@../design/Styles.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="login_form" layoutY="122.0" prefHeight="500.0" prefWidth="700.0" styleClass="white-bg" stylesheets="@../design/Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label layoutX="460.0" layoutY="85.0" text="Login Account">
                      <font>
@@ -27,13 +27,13 @@
                      </font>
                   </Label>
                   <Label layoutX="478.0" layoutY="116.0" text="Veterinary Portal" />
-                  <TextField fx:id="login_username" layoutX="412.0" layoutY="165.0" prefHeight="30.0" prefWidth="220.0" promptText="Username" stylesheets="@../design/Styles.css">
+                  <TextField fx:id="login_username" layoutX="412.0" layoutY="165.0" prefHeight="30.0" prefWidth="220.0" promptText="Username" stylesheets="@../design/Styles.css" text="admin">
                      <styleClass>
                         <String fx:value="textfiled-1" />
                         <String fx:value="white-bg" />
                      </styleClass>
                   </TextField>
-                  <PasswordField fx:id="login_password" layoutX="413.0" layoutY="208.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" stylesheets="@../design/Styles.css">
+                  <PasswordField fx:id="login_password" layoutX="412.0" layoutY="208.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" stylesheets="@../design/Styles.css" text="admin1234">
                      <styleClass>
                         <String fx:value="textfiled-1" />
                         <String fx:value="white-bg" />
@@ -58,7 +58,7 @@
                   <FontAwesomeIcon fill="#798a78" glyphName="USER" layoutX="501.0" layoutY="65.0" size="5em" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="register_form" layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="700.0" styleClass="white-bg" stylesheets="@../design/Styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="register_form" layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="700.0" styleClass="white-bg" stylesheets="@../design/Styles.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label layoutX="507.0" layoutY="26.0" text="Create Account">
                      <font>

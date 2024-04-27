@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import java.lang.String?>
 <?import java.net.URL?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -42,7 +45,6 @@
                               <URL value="@../design/MainFormDesign.css" />
                            </stylesheets>
                         </AnchorPane>
-                        <Circle fill="#13b3d7" layoutX="1081.0" layoutY="25.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.rightAnchor="102.0" />
                         <Label layoutX="1120.0" layoutY="16.0" text="Active" AnchorPane.rightAnchor="45.0">
                            <font>
                               <Font size="13.0" />
@@ -54,7 +56,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="839.0" layoutY="13.0" prefHeight="17.0" prefWidth="212.0" text="Name" AnchorPane.rightAnchor="149.0">
+                        <Label fx:id="name_top" layoutX="839.0" layoutY="13.0" prefHeight="17.0" prefWidth="212.0" text="Name" AnchorPane.rightAnchor="149.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -64,11 +66,16 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="276.0" layoutY="13.0" prefHeight="17.0" prefWidth="242.0" styleClass="header-1" stylesheets="@../design/MainFormDesign.css" text="FormName" AnchorPane.leftAnchor="276.0" AnchorPane.topAnchor="13.0">
+                        <Label fx:id="formName_top" layoutX="276.0" layoutY="13.0" prefHeight="17.0" prefWidth="242.0" styleClass="header-1" stylesheets="@../design/MainFormDesign.css" text="FormName" AnchorPane.leftAnchor="276.0" AnchorPane.topAnchor="13.0">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
+                        <ImageView fitHeight="41.0" fitWidth="32.0" layoutX="1263.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="105.0">
+                           <image>
+                              <Image url="@../Assets/status%20(1).png" />
+                           </image>
+                        </ImageView>
                      </children>
                      <styleClass>
                         <String fx:value="border" />
@@ -86,7 +93,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="101.0" layoutY="127.0" prefHeight="20.0" prefWidth="152.0" text="1" textFill="WHITE">
+                        <Label fx:id="userId_left" layoutX="101.0" layoutY="127.0" prefHeight="20.0" prefWidth="152.0" text="1" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -96,7 +103,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="101.0" layoutY="158.0" prefHeight="20.0" prefWidth="152.0" text="UserName" textFill="WHITE">
+                        <Label fx:id="name_left" layoutX="101.0" layoutY="158.0" prefHeight="20.0" prefWidth="152.0" text="Admin" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -107,15 +114,15 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button layoutX="23.0" layoutY="284.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="216.0" styleClass="btn-1" stylesheets="@../design/MainFormDesign.css" text="Dashboard">
+                        <Button fx:id="dashboard_btn" layoutX="23.0" layoutY="284.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="41.0" prefWidth="216.0" styleClass="btn-1" stylesheets="@../design/MainFormDesign.css" text="Dashboard">
                            <font>
                               <Font size="14.0" />
                            </font></Button>
-                        <Button layoutX="23.0" layoutY="338.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="216.0" styleClass="btn-1" stylesheets="@../design/MainFormDesign.css" text="Veterinarian">
+                        <Button fx:id="veterinarian_btn" layoutX="23.0" layoutY="338.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="41.0" prefWidth="216.0" styleClass="btn-1" stylesheets="@../design/MainFormDesign.css" text="Veterinarian">
                            <font>
                               <Font size="14.0" />
                            </font></Button>
-                        <Button layoutX="23.0" layoutY="392.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="216.0" styleClass="btn-1" stylesheets="@../design/MainFormDesign.css" text="Available Cases">
+                        <Button fx:id="cases_btn" layoutX="23.0" layoutY="392.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="41.0" prefWidth="216.0" styleClass="btn-1" stylesheets="@../design/MainFormDesign.css" text="Available Cases">
                            <font>
                               <Font size="14.0" />
                            </font></Button>
@@ -124,7 +131,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button layoutX="73.0" layoutY="633.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="104.0" styleClass="btn-1" stylesheets="@../design/MainFormDesign.css" text="Logout" AnchorPane.bottomAnchor="25.4" AnchorPane.leftAnchor="72.80000000000001">
+                        <Button fx:id="logout_btn" layoutX="73.0" layoutY="633.0" mnemonicParsing="false" onAction="#logout" prefHeight="41.0" prefWidth="104.0" styleClass="btn-1" stylesheets="@../design/MainFormDesign.css" text="Logout" AnchorPane.bottomAnchor="25.4" AnchorPane.leftAnchor="72.80000000000001">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -150,126 +157,247 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="63.0" layoutY="49.0" prefHeight="650.0" prefWidth="940.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="dashboard_form" prefHeight="650.0" prefWidth="940.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane layoutX="23.0" layoutY="25.0" prefHeight="200.0" prefWidth="891.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="25.0">
+                              <AnchorPane layoutX="11.2" layoutY="10.4" prefHeight="677.0" prefWidth="1116.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="10.0">
                                  <styleClass>
                                     <String fx:value="white-bg" />
                                     <String fx:value="shadow" />
                                     <String fx:value="radius" />
                                  </styleClass>
                                  <children>
-                                    <ScrollPane layoutX="6.0" prefHeight="200.0" prefWidth="891.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <content>
-                                          <AnchorPane prefHeight="200.0" prefWidth="1104.0" stylesheets="@../design/MainFormDesign.css">
-                                             <styleClass>
-                                                <String fx:value="radius" />
-                                                <String fx:value="shadow" />
-                                             </styleClass>
-                                             <children>
-                                                <AnchorPane layoutX="22.0" layoutY="22.0" prefHeight="156.0" prefWidth="273.0" stylesheets="@../design/MainFormDesign.css">
-                                                   <styleClass>
-                                                      <String fx:value="bg-color-1" />
-                                                      <String fx:value="radius" />
-                                                   </styleClass>
-                                                   <children>
-                                                      <FontAwesomeIcon fill="WHITE" glyphName="USER_MD" layoutX="27.0" layoutY="99.0" size="5em" />
-                                                      <Label alignment="CENTER_RIGHT" layoutX="86.0" layoutY="14.0" prefHeight="25.0" prefWidth="173.0" text="0" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="System Bold" size="16.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label alignment="CENTER" layoutX="86.0" layoutY="117.0" prefHeight="25.0" prefWidth="173.0" text="Active Veterenarians" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="System Bold" size="16.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </AnchorPane>
-                                                <AnchorPane layoutX="340.0" layoutY="22.0" prefHeight="156.0" prefWidth="273.0" stylesheets="@../design/MainFormDesign.css">
-                                                   <styleClass>
-                                                      <String fx:value="bg-color-1" />
-                                                      <String fx:value="radius" />
-                                                   </styleClass>
-                                                   <children>
-                                                      <FontAwesomeIcon fill="WHITE" glyphName="PAW" layoutX="27.0" layoutY="99.0" size="5em" />
-                                                      <Label alignment="CENTER_RIGHT" layoutX="86.0" layoutY="14.0" prefHeight="25.0" prefWidth="173.0" text="0" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="System Bold" size="16.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label alignment="CENTER" layoutX="86.0" layoutY="117.0" prefHeight="25.0" prefWidth="173.0" text="Total Cases" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="System Bold" size="16.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </AnchorPane>
-                                             </children></AnchorPane>
-                                       </content>
-                                    </ScrollPane>
+                                    <BarChart fx:id="dashboardChart" layoutX="63.0" layoutY="318.0" prefHeight="361.0" prefWidth="966.0" title="Daily Cases Chart" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </BarChart>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="11.0" layoutY="11.0" prefHeight="222.0" prefWidth="1116.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.leftAnchor="11.200000000000045" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="11.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="19.0" layoutY="16.0" prefHeight="187.0" prefWidth="334.0" styleClass="card" stylesheets="@../design/MainFormDesign.css">
+                                       <children>
+                                          <ImageView fitHeight="87.0" fitWidth="68.0" layoutX="15.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Assets/case-file.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="196.0" layoutY="132.0" text="Total Cases">
+                                             <font>
+                                                <Font name="Tahoma" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="dashboard_vetCases" alignment="CENTER_RIGHT" layoutX="146.0" layoutY="18.0" prefHeight="32.0" prefWidth="165.0" text="0" textAlignment="RIGHT">
+                                             <font>
+                                                <Font name="Arial" size="32.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="385.0" layoutY="17.0" prefHeight="187.0" prefWidth="334.0" styleClass="card" stylesheets="@../design/MainFormDesign.css">
+                                       <children>
+                                          <ImageView fitHeight="87.0" fitWidth="68.0" layoutX="15.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Assets/case-file.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label alignment="CENTER_RIGHT" layoutX="124.0" layoutY="136.0" text="Total Veterinarians">
+                                             <font>
+                                                <Font name="Tahoma" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="dashboard_vetCount" alignment="CENTER_RIGHT" layoutX="146.0" layoutY="18.0" prefHeight="32.0" prefWidth="165.0" text="0" textAlignment="RIGHT">
+                                             <font>
+                                                <Font name="Arial" size="32.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="751.0" layoutY="16.0" prefHeight="187.0" prefWidth="334.0" styleClass="card" stylesheets="@../design/MainFormDesign.css">
+                                       <children>
+                                          <ImageView fitHeight="87.0" fitWidth="68.0" layoutX="15.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Assets/case-file.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="122.0" layoutY="137.0" text="Total Inactive Vets">
+                                             <font>
+                                                <Font name="Tahoma" size="22.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="dashboard_vetInactiveCases" alignment="CENTER_RIGHT" layoutX="146.0" layoutY="18.0" prefHeight="32.0" prefWidth="165.0" text="0" textAlignment="RIGHT">
+                                             <font>
+                                                <Font name="Arial" size="32.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
                                  </children>
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutY="6.0" prefHeight="650.0" prefWidth="940.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="veterinarian_form" layoutY="6.0" prefHeight="650.0" prefWidth="940.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="626.0" prefWidth="911.0" stylesheets="@../design/MainFormDesign.css">
+                              <AnchorPane layoutX="11.0" layoutY="11.0" prefHeight="677.0" prefWidth="1118.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="11.0">
                                  <styleClass>
                                     <String fx:value="white-bg" />
                                     <String fx:value="shadow" />
-                                    <String fx:value="radius" />
                                  </styleClass>
                                  <children>
-                                    <Label layoutX="14.0" layoutY="14.0" styleClass="header-1" stylesheets="@../design/MainFormDesign.css" text="Veterinarians">
+                                    <Label layoutX="82.0" layoutY="367.0" text="Vet ID : ">
                                        <font>
-                                          <Font size="18.0" />
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="vet_vetId" layoutX="152.0" layoutY="359.0" prefHeight="35.0" prefWidth="300.0">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label layoutX="57.0" layoutY="418.0" text="First Name :">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="vet_fname" layoutX="152.0" layoutY="410.0" prefHeight="35.0" prefWidth="300.0">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label layoutX="58.0" layoutY="467.0" text="Last Name :">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="vet_lname" layoutX="152.0" layoutY="459.0" prefHeight="35.0" prefWidth="300.0">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label layoutX="78.0" layoutY="516.0" text="Gender : ">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="vet_gender" layoutX="152.0" layoutY="508.0" prefHeight="35.0" prefWidth="300.0" promptText="Choose" />
+                                    <Label layoutX="572.0" layoutY="366.0" text="Phone # : ">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="vet_phone" layoutX="662.0" layoutY="359.0" prefHeight="35.0" prefWidth="300.0">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label layoutX="542.0" layoutY="418.0" text="Specialization :">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="525.0" layoutY="467.0" text="Date Registered :">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="vet_date" editable="false" layoutX="662.0" layoutY="459.0" prefHeight="35.0" prefWidth="300.0">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <ComboBox fx:id="vet_specialization" layoutX="662.0" layoutY="409.0" prefHeight="35.0" prefWidth="300.0" promptText="Choose" />
+                                    <Button fx:id="vet_addBtn" layoutX="976.0" layoutY="598.0" mnemonicParsing="false" onAction="#vetAdd" prefHeight="41.0" prefWidth="94.0" styleClass="add-btn" stylesheets="@../design/MainFormDesign.css" text="Add" />
+                                    <Button fx:id="vet_updateBtn" layoutX="868.0" layoutY="598.0" mnemonicParsing="false" onAction="#vetUpdate" prefHeight="41.0" prefWidth="94.0" styleClass="update-btn" stylesheets="@../design/MainFormDesign.css" text="Update" />
+                                    <Button fx:id="vet_deleteBtn" layoutX="733.0" layoutY="598.0" mnemonicParsing="false" onAction="#vetDelete" prefHeight="41.0" prefWidth="94.0" styleClass="delete-btn" stylesheets="@../design/MainFormDesign.css" text="Delete" />
+                                    <Button fx:id="vet_clearBtn" layoutX="625.0" layoutY="598.0" mnemonicParsing="false" onAction="#vetClear" prefHeight="41.0" prefWidth="94.0" styleClass="clear-btn" stylesheets="@../design/MainFormDesign.css" text="Clear" />
+                                    <Label layoutX="543.0" layoutY="516.0" text="Active Status : ">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="active_label" layoutX="689.0" layoutY="516.0" text="Active" textFill="#23c736">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Circle fx:id="active_icon" fill="#23c736" layoutX="675.0" layoutY="526.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                    <Circle fx:id="inactive_icon" fill="#c73824" layoutX="675.0" layoutY="526.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" />
+                                    <Label fx:id="inactiveLabel" layoutX="688.0" layoutY="516.0" text="Inactive" textFill="#c73824" visible="false">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <TableView layoutX="31.0" layoutY="58.0" prefHeight="567.0" prefWidth="877.0" stylesheets="@../design/MainFormDesign.css">
-                                <columns>
-                                  <TableColumn prefWidth="75.0" text="Vet ID" />
-                                  <TableColumn prefWidth="106.0" text="Name" />
-                                    <TableColumn prefWidth="106.0" text="Gender" />
-                                    <TableColumn prefWidth="138.0" text="Contact Number" />
-                                    <TableColumn prefWidth="138.0" text="Email Address" />
-                                    <TableColumn prefWidth="138.0" text="Specialization" />
-                                    <TableColumn prefWidth="97.0" text="Status" />
-                                    <TableColumn prefWidth="82.0" text="Action" />
-                                </columns>
-                              </TableView>
+                              <AnchorPane layoutX="11.0" layoutY="12.0" prefHeight="320.0" prefWidth="1118.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="11.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="vet_tableView" layoutX="12.0" layoutY="48.8" onMouseClicked="#vetSelect" prefHeight="258.0" prefWidth="1094.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="49.0">
+                                      <columns>
+                                        <TableColumn fx:id="vet_id_col" prefWidth="108.00000286102295" text="Vet ID" />
+                                        <TableColumn fx:id="vet_fname_col" prefWidth="171.20005798339844" text="Fisrt Name" />
+                                          <TableColumn fx:id="vet_lname_col" prefWidth="194.39996337890625" text="Last Name" />
+                                          <TableColumn fx:id="vet_gender_col" prefWidth="136.00006103515625" text="Gender" />
+                                          <TableColumn fx:id="vet_phone_col" prefWidth="144.800048828125" text="Phone #" />
+                                          <TableColumn fx:id="vet_specialization_col" prefWidth="175.199951171875" text="Specialization" />
+                                          <TableColumn fx:id="vet_date_col" prefWidth="133.60015869140625" text="Date registered" />
+                                      </columns>
+                                    </TableView>
+                                    <Label alignment="CENTER_RIGHT" layoutX="829.0" layoutY="11.0" prefHeight="28.0" prefWidth="274.0" text="All Veterinarians" AnchorPane.rightAnchor="14.199999999999932">
+                                       <font>
+                                          <Font name="Tahoma" size="22.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="650.0" prefWidth="940.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane fx:id="case_form" prefHeight="650.0" prefWidth="940.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="626.0" prefWidth="911.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="575.0" prefWidth="1118.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.bottomAnchor="114.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="11.0">
                                  <styleClass>
                                     <String fx:value="white-bg" />
                                     <String fx:value="shadow" />
-                                    <String fx:value="radius" />
                                  </styleClass>
                                  <children>
-                                    <Label layoutX="11.0" layoutY="9.0" styleClass="header-1" stylesheets="@../design/MainFormDesign.css" text="Available Cases">
+                                    <TableView fx:id="cases_tableView" layoutX="18.4" layoutY="60.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="59.999999999999886">
+                                      <columns>
+                                        <TableColumn fx:id="case_caseId_col" prefWidth="168.00000989437103" text="Case ID" />
+                                        <TableColumn fx:id="case_species_col" prefWidth="272.7999725341797" text="Animal Species" />
+                                          <TableColumn fx:id="case_date_col" prefWidth="226.39993286132812" text="Date of Examination" />
+                                          <TableColumn fx:id="case_gender_col" prefWidth="199.20001220703125" text="Gender" />
+                                          <TableColumn fx:id="case_follow_col" prefWidth="215.20001220703125" text="FollowUp Date" />
+                                      </columns>
+                                    </TableView>
+                                    <Label layoutX="1011.0" layoutY="12.0" text="All Cases" AnchorPane.rightAnchor="20.199999999999903">
                                        <font>
-                                          <Font size="18.0" />
+                                          <Font name="Tahoma" size="22.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </AnchorPane>
-                              <TableView layoutX="31.0" layoutY="58.0" prefHeight="567.0" prefWidth="877.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="58.0">
-                                 <columns>
-                                    <TableColumn prefWidth="75.0" text="Case ID" />
-                                    <TableColumn prefWidth="106.0" text="Animal Type" />
-                                    <TableColumn prefWidth="106.0" text="Gender" />
-                                    <TableColumn prefWidth="89.0" text="Age" />
-                                    <TableColumn prefWidth="124.0" text="Place" />
-                                    <TableColumn prefWidth="82.0" text="Date" />
-                                    <TableColumn prefWidth="90.0" text="Status" />
-                                    <TableColumn prefWidth="208.0" text="Action" />
-                                 </columns>
-                              </TableView>
+                              <Button fx:id="casesDelete_btn" layoutX="988.0" layoutY="621.0" mnemonicParsing="false" onAction="#caseCaseDelete" prefHeight="41.0" prefWidth="94.0" styleClass="delete-btn" stylesheets="@../design/MainFormDesign.css" text="Delete" AnchorPane.bottomAnchor="38.0" AnchorPane.rightAnchor="58.0" />
+                              <Label layoutX="577.0" layoutY="632.0" text="Case ID : " AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="500.0">
+                                 <font>
+                                    <Font name="Tahoma" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="case_delete" layoutX="647.0" layoutY="624.0" onMouseClicked="#caseCaseSearch" prefHeight="35.0" prefWidth="300.0" promptText="Enter Case ID wish to delete" AnchorPane.bottomAnchor="41.0" AnchorPane.rightAnchor="193.0">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </TextField>
                            </children>
                         </AnchorPane>
                      </children></AnchorPane>
