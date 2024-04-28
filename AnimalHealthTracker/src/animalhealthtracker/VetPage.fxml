@@ -27,13 +27,13 @@
                      </font>
                   </Label>
                   <Label layoutX="478.0" layoutY="116.0" text="Veterinary Portal" />
-                  <TextField fx:id="login_username" layoutX="412.0" layoutY="165.0" prefHeight="30.0" prefWidth="220.0" promptText="Username" stylesheets="@../design/Styles.css" text="admin">
+                  <TextField fx:id="login_username" layoutX="412.0" layoutY="165.0" prefHeight="30.0" prefWidth="220.0" promptText="Username" stylesheets="@../design/Styles.css">
                      <styleClass>
                         <String fx:value="textfiled-1" />
                         <String fx:value="white-bg" />
                      </styleClass>
                   </TextField>
-                  <PasswordField fx:id="login_password" layoutX="412.0" layoutY="208.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" stylesheets="@../design/Styles.css" text="admin1234">
+                  <PasswordField fx:id="login_password" layoutX="412.0" layoutY="208.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" stylesheets="@../design/Styles.css">
                      <styleClass>
                         <String fx:value="textfiled-1" />
                         <String fx:value="white-bg" />
