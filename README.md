@@ -18,7 +18,7 @@ for its ability to create rich, responsive desktop applications. The UI will fea
 
 Using the WeatherApp is straightforward. Follow these steps to get started:
 
-1. **Clone the Repository:** Clone the [[animal-health-tracker](https://github.com/shakilakamalasena/animal-health-tracker/)](https://github.com/shakilakamalasena/animal-health-tracker/blob/main/animalhealthtracker.sql) repository to your local machine using Git.
+1. **Clone the Repository:** Clone the [animal-health-tracker](https://github.com/shakilakamalasena/animal-health-tracker/) repository to your local machine using Git.
 2. **Run the Application:**
     - Open the project in your Netbeans IDE.
     - Build and run the application within your IDE environment.
