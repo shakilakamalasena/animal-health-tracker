@@ -244,8 +244,6 @@ public class VetMainFormController implements Initializable {
     @FXML
     private CheckBox setting_checkbox;
     
-    @FXML
-    private Label lname_left;
 
     private Connection connect;
     private Statement statement;
@@ -351,8 +349,7 @@ public class VetMainFormController implements Initializable {
             while (resultSet.next()) {                
                 vetD = new vetData(resultSet.getString("firstName"), resultSet.getString("lastName"));
                 name_top.setText(vetD.getFirstName());
-                name_left.setText(vetD.getFirstName());
-                lname_left.setText(vetD.getLastName());
+                name_left.setText(vetD.getFirstName() + " " + vetD.getLastName());
             }
             
         } catch (Exception e) {
@@ -812,7 +809,7 @@ public class VetMainFormController implements Initializable {
                 alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Confirmation Message");
                 alert.setHeaderText(null);
-                alert.setContentText("Are you sure you want to UPDATE Vet ID: " + update_caseId.getText() + "?");
+                alert.setContentText("Are you sure you want to UPDATE Case ID: " + update_caseId.getText() + "?");
                 Optional<ButtonType> optional = alert.showAndWait();
 
                 if (optional.get().equals(ButtonType.OK)) {

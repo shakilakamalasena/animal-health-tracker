@@ -104,7 +104,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="name_left" layoutX="101.0" layoutY="158.0" prefHeight="20.0" prefWidth="152.0" text="Veterinary" textFill="WHITE">
+                        <Label fx:id="name_left" alignment="TOP_LEFT" layoutX="101.0" layoutY="158.0" prefHeight="55.0" prefWidth="152.0" text="Veterinary" textFill="WHITE" wrapText="true">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -160,11 +160,6 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Label fx:id="lname_left" layoutX="100.0" layoutY="181.0" prefHeight="20.0" prefWidth="152.0" text="Veterinary" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                        </Label>
                      </children>
                   </AnchorPane>
                </left>
@@ -321,7 +316,7 @@
                                                 <Font name="Tahoma" size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="addCase_date" layoutX="97.0" layoutY="86.0" prefHeight="30.0" prefWidth="195.0" AnchorPane.leftAnchor="102.0" AnchorPane.topAnchor="90.0">
+                                          <TextField fx:id="addCase_date" layoutX="97.0" layoutY="86.0" prefHeight="30.0" prefWidth="195.0" promptText="Found date" AnchorPane.leftAnchor="102.0" AnchorPane.topAnchor="90.0">
                                              <font>
                                                 <Font name="Arial" size="14.0" />
                                              </font>
@@ -374,7 +369,7 @@
                                                 <Font name="Tahoma" size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="addCase_tests" layoutX="322.0" layoutY="52.0" prefHeight="111.0" prefWidth="397.0" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="18.799999999999955" AnchorPane.topAnchor="50.0">
+                                          <TextField fx:id="addCase_tests" alignment="TOP_LEFT" layoutX="322.0" layoutY="52.0" prefHeight="111.0" prefWidth="397.0" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="18.799999999999955" AnchorPane.topAnchor="50.0">
                                              <font>
                                                 <Font name="Arial" size="14.0" />
                                              </font>
@@ -392,7 +387,7 @@
                                                 <Font name="Tahoma" size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="addCase_treatments" layoutX="102.0" layoutY="46.0" prefHeight="58.0" prefWidth="618.0">
+                                          <TextField fx:id="addCase_treatments" alignment="TOP_LEFT" layoutX="102.0" layoutY="46.0" prefHeight="58.0" prefWidth="618.0">
                                              <font>
                                                 <Font name="Arial" size="14.0" />
                                              </font>

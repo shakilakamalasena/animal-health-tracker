@@ -654,6 +654,8 @@ public class AdminMainFromController implements Initializable {
             
             String insertData = "INSERT INTO vet(firstName, lastName, gender, phoneNo, specialization, username, password, date) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
             
+            connect = Database.connectDB();
+            
             preparedStatement = connect.prepareStatement(insertData);
             preparedStatement.setString(1, vet_fname.getText());
             preparedStatement.setString(2, vet_lname.getText());

@@ -356,12 +356,19 @@ public class VetPageController implements Initializable {
     @FXML
     //Switching login form and register form
     public void switchForm(ActionEvent event) {
-        if (event.getSource() == register_loginHere) {
-            login_form.setVisible(true);
-            register_form.setVisible(false);
-        } else if (event.getSource() == login_registerHere) {
-            login_form.setVisible(false);
-            register_form.setVisible(true);
+        try {
+            System.out.println("Switching form...");
+            if (event.getSource() == register_loginHere) {
+                System.out.println("Switching to Login Form...");
+                login_form.setVisible(true);
+                register_form.setVisible(false);
+            } else if (event.getSource() == login_registerHere) {
+                System.out.println("Switching to Register Form...");
+                login_form.setVisible(false);
+                register_form.setVisible(true);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
