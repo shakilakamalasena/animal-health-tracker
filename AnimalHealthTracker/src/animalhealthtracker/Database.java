@@ -15,11 +15,11 @@ public class Database {
     public static Connection connectDB(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            
-            Connection connect = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/animalhealthtracker", "root", "");
+            Connection connect = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3307/animalhealthtracker", "root", "");           
             return connect;
         } catch (Exception e) {
             e.printStackTrace();
+            
         }
         return null;
     }
