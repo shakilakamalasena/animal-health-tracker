@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="animalhealthtracker.VetMainFormController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane layoutX="93.0" layoutY="43.0" prefHeight="700.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="50.0" prefWidth="1200.0" stylesheets="@../design/MainFormDesign.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="2.0" layoutY="2.0" prefHeight="48.0" prefWidth="258.0" stylesheets="@../design/VetMainFormDesign.css" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="1.0">
+                           <children>
+                              <Label layoutX="29.0" layoutY="14.0" text="Animal Health Tracker">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <styleClass>
+                              <String fx:value="white-bg" />
+                              <String fx:value="bg-color-1" />
+                           </styleClass>
+                        </AnchorPane>
+                        <Label fx:id="activeLabel" layoutX="1314.2" layoutY="15.0" text="Active" AnchorPane.rightAnchor="50.59999999999991">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Circle fx:id="activeIcon" fill="#23c736" layoutX="1171.0" layoutY="25.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" AnchorPane.rightAnchor="24.0" />
+                        <Label layoutX="774.0" layoutY="15.0" text="Welcome, " AnchorPane.rightAnchor="360.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="name_top" layoutX="839.0" layoutY="13.0" prefHeight="17.0" prefWidth="212.0" text="Name" AnchorPane.rightAnchor="149.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="date_time" alignment="CENTER_RIGHT" layoutX="496.0" layoutY="15.0" prefHeight="17.0" prefWidth="242.0" text="MM:DD:YYYY" AnchorPane.rightAnchor="462.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="formName_top" layoutX="276.0" layoutY="13.0" prefHeight="17.0" prefWidth="242.0" styleClass="header-1" stylesheets="@../design/VetMainFormDesign.css" text="FormName" AnchorPane.leftAnchor="276.0" AnchorPane.topAnchor="13.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="inactiveLabel" alignment="CENTER_RIGHT" layoutX="1295.0" layoutY="15.0" prefHeight="19.0" prefWidth="59.0" text="Inactive" visible="false">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Circle fx:id="inactiveIcon" fill="#c73824" layoutX="1370.0" layoutY="25.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Label fx:id="hiddenPwd" layoutX="560.0" layoutY="21.0" opacity="0.0" text="Label" />
+                        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="1268.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Assets/status%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <styleClass>
+                        <String fx:value="border" />
+                        <String fx:value="white-bg" />
+                        <String fx:value="border-top" />
+                     </styleClass>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="200.0" prefWidth="260.0" styleClass="bg-color-1" stylesheets="@../design/VetMainFormDesign.css" BorderPane.alignment="CENTER">
+                     <children>
+                        
+                        <Label layoutX="21.0" layoutY="129.0" text="User ID : " textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="userId_left" layoutX="101.0" layoutY="127.0" prefHeight="20.0" prefWidth="152.0" text="1" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="160.0" text="Username : " textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="name_left" alignment="TOP_LEFT" layoutX="101.0" layoutY="158.0" prefHeight="55.0" prefWidth="152.0" text="Veterinary" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="130.0" layoutY="224.0" startX="-100.0" stroke="WHITE" />
+                        <Label layoutX="21.0" layoutY="248.0" text="Feature" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="dashboard_btn" layoutX="23.0" layoutY="290.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="41.0" prefWidth="216.0" styleClass="btn-1" stylesheets="@../design/MainFormDesign.css" text="Dashboard">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Button>
+                        <Button fx:id="addcase_btn" layoutX="23.0" layoutY="344.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="41.0" prefWidth="216.0" styleClass="btn-1" stylesheets="@../design/MainFormDesign.css" text="Add Case">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Button>
+                        <Button fx:id="updatecase_btn" layoutX="23.0" layoutY="398.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="41.0" prefWidth="216.0" styleClass="btn-1" stylesheets="@../design/MainFormDesign.css" text="Update Case">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Button>
+                        <Label layoutX="21.0" layoutY="466.0" text="Profile" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="logout_btn" layoutX="73.0" layoutY="633.0" mnemonicParsing="false" onAction="#logout" prefHeight="41.0" prefWidth="104.0" styleClass="btn-1" stylesheets="@../design/MainFormDesign.css" text="Logout" AnchorPane.bottomAnchor="25.4" AnchorPane.leftAnchor="72.80000000000001">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Assets/logout.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <ImageView fitHeight="80.0" fitWidth="102.0" layoutX="85.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Assets/user.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="setting_btn" layoutX="23.0" layoutY="505.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="41.0" prefWidth="216.0" styleClass="btn-1" stylesheets="@../design/MainFormDesign.css" text="Profile Setting">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Assets/cogwheels.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="dashboard_form" prefHeight="650.0" prefWidth="940.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="11.2" layoutY="10.4" prefHeight="677.0" prefWidth="1116.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="10.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="33.0" layoutY="54.0" prefHeight="570.0" prefWidth="380.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.leftAnchor="33.0" AnchorPane.topAnchor="54.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                          <String fx:value="radius" />
+                                       </styleClass>
+                                       <children>
+                                          <AnchorPane layoutX="25.0" layoutY="74.0" prefHeight="187.0" prefWidth="325.0" styleClass="card" stylesheets="@../design/MainFormDesign.css">
+                                             <children>
+                                                <ImageView fitHeight="87.0" fitWidth="68.0" layoutX="15.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Assets/case-file.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label layoutX="191.0" layoutY="132.0" text="Total Cases">
+                                                   <font>
+                                                      <Font name="Tahoma" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="dashboard_allCases" alignment="CENTER_RIGHT" layoutX="135.0" layoutY="25.0" prefHeight="32.0" prefWidth="165.0" text="0" textAlignment="RIGHT">
+                                                   <font>
+                                                      <Font name="Arial" size="32.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="26.0" layoutY="307.0" prefHeight="187.0" prefWidth="325.0" styleClass="card" stylesheets="@../design/MainFormDesign.css">
+                                             <children>
+                                                <ImageView fitHeight="87.0" fitWidth="68.0" layoutX="15.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Assets/case-file.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label layoutX="180.0" layoutY="134.0" text="Today Cases" textAlignment="RIGHT">
+                                                   <font>
+                                                      <Font name="Tahoma" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="dashboard_todayCount" alignment="CENTER_RIGHT" layoutX="133.0" layoutY="26.0" prefHeight="32.0" prefWidth="165.0" text="0" textAlignment="RIGHT">
+                                                   <font>
+                                                      <Font name="Arial" size="32.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </AnchorPane>
+                                    <TableView fx:id="todayCases_tableView" layoutX="546.0" layoutY="103.0" prefHeight="470.0" prefWidth="440.0">
+                                      <columns>
+                                        <TableColumn fx:id="todayCases_col" prefWidth="439.20001220703125" text="TODAY CASES" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="addCase_form" layoutY="6.0" prefHeight="650.0" prefWidth="940.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="11.0" layoutY="11.0" prefHeight="677.0" prefWidth="1118.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.bottomAnchor="11.400000000000091" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.400000000000091" AnchorPane.topAnchor="11.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <Button fx:id="addCase_add_btn" layoutX="987.0" layoutY="615.9999999999999" mnemonicParsing="false" onAction="#addCaseAdd" prefHeight="41.0" prefWidth="94.0" styleClass="add-btn" stylesheets="@../design/MainFormDesign.css" text="Add" AnchorPane.bottomAnchor="20.0" />
+                                    <Button fx:id="addCase_clear_btn" layoutX="839.0" layoutY="615.9999999999999" mnemonicParsing="false" onAction="#addCaseClear" prefHeight="41.0" prefWidth="94.0" styleClass="clear-btn" stylesheets="@../design/MainFormDesign.css" text="Clear" AnchorPane.bottomAnchor="20.0" />
+                                    <AnchorPane layoutX="12.0" layoutY="236.0" prefHeight="218.0" prefWidth="340.0" stylesheets="@../design/VetMainFormDesign.css" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="236.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <Label alignment="CENTER" layoutX="81.0" layoutY="15.0" text="Animal Identification" AnchorPane.topAnchor="15.0">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="31.0" layoutY="57.0" text="Case ID : ">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="addCase_caseId" layoutX="102.0" layoutY="51.0" prefHeight="30.0" prefWidth="195.0">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label layoutX="32.0" layoutY="96.0" text="Species : ">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="addCase_species" layoutX="102.0" layoutY="90.0" prefHeight="30.0" prefWidth="195.0">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label layoutX="54.0" layoutY="136.0" text="Sex : ">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <ComboBox fx:id="addCase_gender" layoutX="102.0" layoutY="130.0" prefHeight="30.0" prefWidth="195.0" promptText="Choose" />
+                                          <Label layoutX="52.0" layoutY="176.0" text="Age : ">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="addCase_age" layoutX="101.0" layoutY="171.0" prefHeight="30.0" prefWidth="195.0">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="12.0" layoutY="471.0" prefHeight="138.0" prefWidth="340.0" stylesheets="@../design/VetMainFormDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <Label alignment="CENTER" layoutX="105.0" layoutY="14.0" text="Location Details" AnchorPane.topAnchor="15.0">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="22.0" layoutY="52.8" text="Location : " AnchorPane.topAnchor="52.8">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="addCase_location" layoutX="97.0" layoutY="47.0" prefHeight="30.0" prefWidth="195.0" AnchorPane.leftAnchor="102.0">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label layoutX="44.0" layoutY="96.0" text="Date : ">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="addCase_date" layoutX="97.0" layoutY="86.0" prefHeight="30.0" prefWidth="195.0" promptText="Found date" AnchorPane.leftAnchor="102.0" AnchorPane.topAnchor="90.0">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="368.0" layoutY="236.0" prefHeight="176.0" prefWidth="738.0" stylesheets="@../design/VetMainFormDesign.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <Label alignment="CENTER" layoutX="281.0" layoutY="14.0" text="Medical Examinations">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="17.0" layoutY="56.0" text="Heart Rate :">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="addCase_heartRate" layoutX="105.0" layoutY="49.0" prefHeight="30.0" prefWidth="75.0" AnchorPane.topAnchor="51.0">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label layoutX="14.0" layoutY="97.0" text="Body Temp :">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="addCase_temp" layoutX="106.0" layoutY="91.0" prefHeight="30.0" prefWidth="75.0">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label layoutX="184.0" layoutY="60.0" text="BPM">
+                                             <font>
+                                                <Font name="Tahoma" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="184.0" layoutY="99.0" text="°C">
+                                             <font>
+                                                <Font name="Tahoma" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="229.0" layoutY="42.0" prefHeight="66.0" prefWidth="78.0" text="Tests conducted :" textAlignment="RIGHT" wrapText="true">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="addCase_tests" alignment="TOP_LEFT" layoutX="322.0" layoutY="52.0" prefHeight="111.0" prefWidth="397.0" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="18.799999999999955" AnchorPane.topAnchor="50.0">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="368.0" layoutY="428.0" prefHeight="166.0" prefWidth="738.0" stylesheets="@../design/VetMainFormDesign.css">
+                                       <styleClass>
+                                          <String fx:value="shadow" />
+                                          <String fx:value="white-bg" />
+                                       </styleClass>
+                                       <children>
+                                          <Label layoutX="9.0" layoutY="40.0" prefHeight="66.0" prefWidth="78.0" text="Treatments Done :" textAlignment="RIGHT" wrapText="true">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="addCase_treatments" alignment="TOP_LEFT" layoutX="102.0" layoutY="46.0" prefHeight="58.0" prefWidth="618.0">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label alignment="CENTER" layoutX="289.0" layoutY="14.0" text="Medical Treatments">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="14.0" layoutY="123.0" text="Follow-up Date :">
+                                             <font>
+                                                <Font name="Tahoma" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="addCase_followDate" layoutX="130.0" layoutY="117.0" prefHeight="30.0" prefWidth="170.0" promptText="YYYY-MM-DD">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="11.0" layoutY="12.0" prefHeight="222.0" prefWidth="1118.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="11.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TextField fx:id="addCase_search" layoutX="9.0" layoutY="9.0" onMouseClicked="#addCaseSearch" prefHeight="30.0" prefWidth="250.0" promptText="Search" />
+                                    <ImageView fitHeight="29.0" fitWidth="25.0" layoutX="231.0" layoutY="12.0" opacity="0.29" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Assets/magnifying-glass.png" />
+                                       </image>
+                                    </ImageView>
+                                    <TableView fx:id="addCase_tableView" layoutX="12.0" layoutY="50.6" onMouseClicked="#caseSelect" prefHeight="247.0" prefWidth="1094.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="50.6">
+                                      <columns>
+                                        <TableColumn fx:id="addCase_caseId_col" prefWidth="108.00000286102295" text="Case ID" />
+                                        <TableColumn fx:id="addCase_species_col" prefWidth="171.20005798339844" text="Animal Species" />
+                                          <TableColumn fx:id="addCase_examDate_col" prefWidth="194.39996337890625" text="Date of Examination" />
+                                          <TableColumn fx:id="addCase_gender_col" prefWidth="136.00006103515625" text="Gender" />
+                                          <TableColumn fx:id="addCase_followDate_col" prefWidth="144.800048828125" text="FollowUp Date" />
+                                      </columns>
+                                    </TableView>
+                                    <Label layoutX="1003.0" layoutY="11.0" text="All Cases" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="11.0">
+                                       <font>
+                                          <Font name="Tahoma" size="22.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="updateCase_form" prefHeight="650.0" prefWidth="940.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="657.0" prefWidth="382.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="11.0" AnchorPane.topAnchor="11.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="108.0" layoutY="21.0" text="Animal Identification">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="45.0" layoutY="77.0" text="Case ID : ">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="update_caseId" layoutX="117.0" layoutY="69.0" onMouseClicked="#updateCaseSearch" prefHeight="35.0" prefWidth="230.0">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label layoutX="64.0" layoutY="213.0" text="Date : ">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="update_date" layoutX="119.0" layoutY="207.0" prefHeight="30.0" prefWidth="230.0" promptText="YYYY-MM-DD">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Line endX="217.20001220703125" endY="1.52587890625E-5" layoutX="125.0" layoutY="146.0" startX="-80.40000915527344" startY="1.52587890625E-5" stroke="#b9b7b7" />
+                                    <Label layoutX="143.0" layoutY="164.0" text="Update Data">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="253.0" prefHeight="72.0" prefWidth="90.0" text="Tests Conducted : " textAlignment="RIGHT" wrapText="true">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="update_tests" layoutX="119.0" layoutY="246.0" prefHeight="113.0" prefWidth="230.0">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label layoutX="10.0" layoutY="379.0" prefHeight="90.0" prefWidth="95.0" text="Treatments conducted : " textAlignment="RIGHT" wrapText="true">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="update_treatments" layoutX="118.0" layoutY="371.0" prefHeight="150.0" prefWidth="230.0">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Button fx:id="update_clear_btn" layoutX="120.0" layoutY="615.0" mnemonicParsing="false" onAction="#updateClear" prefHeight="41.0" prefWidth="94.0" styleClass="clear-btn" stylesheets="@../design/MainFormDesign.css" text="Clear" />
+                                    <Button fx:id="update_update_btn" layoutX="247.0" layoutY="615.0" mnemonicParsing="false" onAction="#updateUpdate" prefHeight="41.0" prefWidth="94.0" styleClass="update-btn" stylesheets="@../design/MainFormDesign.css" text="Update" />
+                                    <Label layoutX="10.0" layoutY="538.0" text="FollowUp Date : ">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="update_followDate" layoutX="119.0" layoutY="532.0" prefHeight="30.0" prefWidth="230.0" promptText="YYYY-MM-DD">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="408.0" layoutY="11.0" prefHeight="678.0" prefWidth="722.0" stylesheets="@../design/VetMainFormDesign.css" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="407.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="11.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="278.4" layoutY="12.0" text="Animal Diagnostics" AnchorPane.leftAnchor="278.4" AnchorPane.rightAnchor="278.4">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TableView fx:id="update_tableView" layoutX="14.0" layoutY="54.0" prefHeight="611.0" prefWidth="692.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="50.0">
+                                      <columns>
+                                          <TableColumn fx:id="update_caseId_col" prefWidth="110.40002572536469" text="Case ID" />
+                                          <TableColumn fx:id="update_date_col" prefWidth="129.59996795654297" text="Date" />
+                                          <TableColumn fx:id="update_tests_col" prefWidth="233.60003662109375" text="Previous Tests Conducted" />
+                                          <TableColumn fx:id="update_treatments_col" minWidth="0.0" prefWidth="220.79989624023438" text="Previous Treatments Done" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="settings_form" layoutX="14.0" layoutY="27.0" prefHeight="700.0" prefWidth="1140.0" styleClass="white-bg" stylesheets="@../design/VetMainFormDesign.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label layoutX="68.0" layoutY="56.0" opacity="0.5" text="Important Security Notice:">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="69.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Assets/danger.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                              <Label layoutX="69.0" layoutY="92.0" opacity="0.5" prefHeight="63.0" prefWidth="1015.0" text="To ensure the security of your account, you are required to change your default password (12345678) upon first login. Continuing to use the default password (12345678) can leave your account vulnerable. Please update your password at your earliest convenience." wrapText="true">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <AnchorPane layoutX="307.0" layoutY="217.0" prefHeight="388.0" prefWidth="538.0" stylesheets="@../design/VetMainFormDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="178.0" layoutY="27.0" text="Change Password here">
+                                       <font>
+                                          <Font name="Tahoma" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="95.0" layoutY="100.0" text="Current Password : ">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="showCurrentPassword" layoutX="231.0" layoutY="92.0" prefHeight="35.0" prefWidth="220.0" />
+                                    <Label alignment="CENTER_RIGHT" layoutX="19.0" layoutY="162.0" prefHeight="20.0" prefWidth="195.0" text="New Password : ">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="showNewPassword" layoutX="231.0" layoutY="154.0" prefHeight="35.0" prefWidth="220.0" />
+                                    <Label alignment="CENTER_RIGHT" layoutX="18.0" layoutY="224.0" prefHeight="20.0" prefWidth="195.0" text="Retype New Password : ">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="showReNewPassword" layoutX="230.0" layoutY="216.0" prefHeight="35.0" prefWidth="220.0" />
+                                    <Button layoutX="122.0" layoutY="296.0" mnemonicParsing="false" onAction="#changePassword" prefHeight="50.0" prefWidth="300.0" styleClass="changePwd-btn" stylesheets="@../design/VetMainFormDesign.css" text="Change Password" textFill="#57a3e1">
+                                       <font>
+                                          <Font name="Arial" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <CheckBox fx:id="setting_checkbox" layoutX="345.0" layoutY="264.0" mnemonicParsing="false" onAction="#showPassword" text="Show Password" />
+                                    <PasswordField fx:id="currentPassword" layoutX="230.0" layoutY="92.0" prefHeight="35.0" prefWidth="220.0" />
+                                    <PasswordField fx:id="newPassword" layoutX="231.0" layoutY="154.0" prefHeight="35.0" prefWidth="220.0" />
+                                    <PasswordField fx:id="reNewPassword" layoutX="230.0" layoutY="216.0" prefHeight="35.0" prefWidth="220.0" />
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="69.0" layoutY="143.0" opacity="0.5" prefHeight="46.0" prefWidth="1015.0" text="To switch your active status to inactive, please reset your password to the default password: 12345678." wrapText="true">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children></AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -18,7 +18,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .header-1{
-    -fx-border-color: linear-gradient(to bottom right, #6b8375, #bee1ba);
+    -fx-border-color: linear-gradient(to bottom right, #2f6773, #a2dcea);
     -fx-border-width: 0 0 0 2px;
     -fx-padding: 0 0 0 4px;
 }
@@ -29,7 +29,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .bg-color-1{
-    -fx-background-color: linear-gradient(to bottom right, #6b8375, #bee1ba);
+    -fx-background-color: linear-gradient(to bottom right, #2f6773, #a2dcea);
 }
 
 .btn-1{
@@ -129,4 +129,30 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .clear-btn:hover {
     -fx-background-color: #9d3485;
+}
+
+.search-btn {
+    -fx-background-color: #00abff;
+    -fx-background-radius: 8px;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+    -fx-font-family: "Arial";
+    -fx-cursor: hand;
+}
+
+.search-btn:hover {
+    -fx-background-color: #54c9ff;
+}
+
+.changePwd-btn {
+    -fx-background-color: #3986cb;
+    -fx-background-radius: 12px;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+    -fx-font-family: "Arial";
+    -fx-cursor: hand;
+}
+
+.changePwd-btn:hover {
+    -fx-background-color: #57a3e1;
 }

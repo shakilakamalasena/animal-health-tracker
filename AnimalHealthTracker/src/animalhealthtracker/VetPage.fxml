@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="animalhealthtracker.FXMLDocumentController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="animalhealthtracker.VetPageController">
    <children>
       <AnchorPane fx:id="main_form" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="500.0" prefWidth="700.0">
          <children>
@@ -25,23 +25,23 @@
                         <Font name="Tahoma" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="481.0" layoutY="119.0" text="Veterinary Portal" />
+                  <Label layoutX="478.0" layoutY="116.0" text="Veterinary Portal" />
                   <TextField fx:id="login_username" layoutX="412.0" layoutY="165.0" prefHeight="30.0" prefWidth="220.0" promptText="Username" stylesheets="@../design/Styles.css">
                      <styleClass>
                         <String fx:value="textfiled-1" />
                         <String fx:value="white-bg" />
                      </styleClass>
                   </TextField>
-                  <PasswordField fx:id="login_password" layoutX="413.0" layoutY="208.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" stylesheets="@../design/Styles.css">
+                  <PasswordField fx:id="login_password" layoutX="412.0" layoutY="208.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" stylesheets="@../design/Styles.css">
                      <styleClass>
                         <String fx:value="textfiled-1" />
                         <String fx:value="white-bg" />
                      </styleClass>
                   </PasswordField>
-                  <TextField fx:id="login_showPassword" layoutX="413.0" layoutY="208.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="textfiled-1" stylesheets="@../design/Styles.css" />
-                  <CheckBox fx:id="login_checkBtn" layoutX="420.0" layoutY="245.0" mnemonicParsing="false" text="Show Password" />
-                  <Button fx:id="login_loginBtn" layoutX="412.0" layoutY="296.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" styleClass="btn-1" stylesheets="@../design/Styles.css" text="Sign In" />
-                  <ComboBox fx:id="login_user" layoutX="450.0" layoutY="387.0" prefWidth="150.0" promptText="Select User" stylesheets="@../design/Styles.css">
+                  <TextField fx:id="login_showPassword" layoutX="413.0" layoutY="208.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="textfiled-1" stylesheets="@../design/Styles.css" visible="false" />
+                  <CheckBox fx:id="login_checkBtn" layoutX="420.0" layoutY="245.0" mnemonicParsing="false" onAction="#loginShowPassword" text="Show Password" />
+                  <Button fx:id="login_loginBtn" layoutX="412.0" layoutY="296.0" mnemonicParsing="false" onAction="#loginAccount" prefHeight="40.0" prefWidth="220.0" styleClass="btn-1" stylesheets="@../design/Styles.css" text="Sign In" />
+                  <ComboBox fx:id="login_user" layoutX="450.0" layoutY="387.0" onAction="#switchPage" prefWidth="150.0" promptText="Select User" stylesheets="@../design/Styles.css">
                      <styleClass>
                         <String fx:value="white-bg" />
                         <String fx:value="textfiled-1" />
@@ -49,49 +49,74 @@
                   </ComboBox>
                   <Label layoutX="398.0" layoutY="454.0" text="Don't have an account?" />
                   <Hyperlink fx:id="login_registerHere" layoutX="558.0" layoutY="451.0" onAction="#switchForm" text="Register Now" />
-                  <ImageView fitHeight="500.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="500.0" fitWidth="350.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../design/ANIMAL.png" />
+                     </image>
+                  </ImageView>
+                  <TextField layoutY="473.0" opacity="0.0" />
+                  <ImageView fitHeight="60.0" fitWidth="57.0" layoutX="493.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Assets/user-1.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
             <AnchorPane fx:id="register_form" layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="700.0" styleClass="white-bg" stylesheets="@../design/Styles.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label layoutX="457.0" layoutY="85.0" text="Create Account">
+                  <Label layoutX="493.0" layoutY="26.0" text="Create Account">
                      <font>
                         <Font name="Tahoma" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="487.0" layoutY="117.0" text="Admin Portal" />
-                  <TextField fx:id="register_username" layoutX="411.0" layoutY="224.0" prefHeight="30.0" prefWidth="220.0" promptText="Username" stylesheets="@../design/Styles.css">
-                     <styleClass>
-                        <String fx:value="textfiled-1" />
-                        <String fx:value="white-bg" />
-                     </styleClass>
-                  </TextField>
-                  <PasswordField fx:id="register_password" layoutX="412.0" layoutY="267.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" stylesheets="@../design/Styles.css">
+                  <Label layoutX="516.0" layoutY="58.0" text="Veterinary Portal" />
+                  <PasswordField fx:id="register_password" layoutX="413.0" layoutY="347.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" stylesheets="@../design/Styles.css">
                      <styleClass>
                         <String fx:value="textfiled-1" />
                         <String fx:value="white-bg" />
                      </styleClass>
                   </PasswordField>
-                  <TextField fx:id="register_showPassword" layoutX="412.0" layoutY="267.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="textfiled-1" stylesheets="@../design/Styles.css" />
-                  <CheckBox fx:id="register_checkBox" layoutX="419.0" layoutY="304.0" mnemonicParsing="false" text="Show Password" />
-                  <Button fx:id="register_signupBtn" layoutX="411.0" layoutY="355.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" styleClass="btn-1" stylesheets="@../design/Styles.css" text="Sign Up" />
-                  <Label layoutX="404.0" layoutY="454.0" text="Already have an account?" />
-                  <Hyperlink fx:id="register_loginHere" layoutX="573.0" layoutY="451.0" onAction="#switchForm" text="Login Now" />
+                  <TextField fx:id="register_showPassword" layoutX="413.0" layoutY="347.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="textfiled-1" stylesheets="@../design/Styles.css" visible="false" />
+                  <CheckBox fx:id="register_checkBox" layoutX="420.0" layoutY="386.0" mnemonicParsing="false" onAction="#registerShowPassword" text="Show Password" />
+                  <Button fx:id="register_signupBtn" layoutX="412.0" layoutY="411.0" mnemonicParsing="false" onAction="#registerAccount" prefHeight="40.0" prefWidth="220.0" styleClass="btn-1" stylesheets="@../design/Styles.css" text="Sign Up" />
+                  <Label layoutX="404.0" layoutY="467.0" text="Already have an account?" />
+                  <Hyperlink fx:id="register_loginHere" layoutX="573.0" layoutY="464.0" onAction="#switchForm" text="Login Now" />
                   <ImageView fitHeight="500.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../design/ANIMAL.png" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="register_email" layoutX="411.0" layoutY="181.0" prefHeight="30.0" prefWidth="220.0" promptText="Email (someone@example.com)" stylesheets="@../design/Styles.css">
+                  <TextField fx:id="register_lname" layoutX="412.0" layoutY="131.0" prefHeight="30.0" prefWidth="220.0" promptText="Last Name" stylesheets="@../design/Styles.css">
                      <styleClass>
                         <String fx:value="textfiled-1" />
                         <String fx:value="white-bg" />
                      </styleClass>
                   </TextField>
+                  <TextField fx:id="register_fname" layoutX="412.0" layoutY="90.0" prefHeight="30.0" prefWidth="220.0" promptText="First Name" stylesheets="@../design/Styles.css">
+                     <styleClass>
+                        <String fx:value="textfiled-1" />
+                        <String fx:value="white-bg" />
+                     </styleClass>
+                  </TextField>
+                  <TextField fx:id="register_username" layoutX="412.0" layoutY="304.0" prefHeight="30.0" prefWidth="220.0" promptText="Username (VET-XXXX)" stylesheets="@../design/Styles.css">
+                     <styleClass>
+                        <String fx:value="textfiled-1" />
+                        <String fx:value="white-bg" />
+                     </styleClass>
+                  </TextField>
+                  <TextField fx:id="register_phone" layoutX="412.0" layoutY="217.0" prefHeight="30.0" prefWidth="220.0" promptText="Phone #" stylesheets="@../design/Styles.css">
+                     <styleClass>
+                        <String fx:value="textfiled-1" />
+                        <String fx:value="white-bg" />
+                     </styleClass>
+                  </TextField>
+                  <ComboBox fx:id="register_gender" layoutX="412.0" layoutY="174.0" onAction="#registerGenderList" prefHeight="30.0" prefWidth="220.0" promptText="Choose Gender" />
+                  <ComboBox fx:id="register_specialization" layoutX="412.0" layoutY="260.0" onAction="#registerSpecializationList" prefHeight="30.0" prefWidth="220.0" promptText="Choose Specialization" />
+                  <ImageView fitHeight="49.0" fitWidth="57.0" layoutX="412.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Assets/add-user.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children>
