@@ -32,13 +32,13 @@
                         <String fx:value="white-bg" />
                      </styleClass>
                   </TextField>
-                  <PasswordField fx:id="login_password" layoutX="412.0" layoutY="240.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" stylesheets="@../design/Styles.css">
+                  <TextField fx:id="login_showPassword" layoutX="412.0" layoutY="236.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="textfiled-1" stylesheets="@../design/Styles.css" />
+                  <PasswordField fx:id="login_password" layoutX="412.0" layoutY="236.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" stylesheets="@../design/Styles.css">
                      <styleClass>
                         <String fx:value="textfiled-1" />
                         <String fx:value="white-bg" />
                      </styleClass>
                   </PasswordField>
-                  <TextField fx:id="login_showPassword" layoutX="412.0" layoutY="240.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="textfiled-1" stylesheets="@../design/Styles.css" />
                   <CheckBox fx:id="login_checkBtn" layoutX="420.0" layoutY="277.0" mnemonicParsing="false" onAction="#loginShowPassword" text="Show Password" />
                   <Button fx:id="login_loginBtn" layoutX="412.0" layoutY="328.0" mnemonicParsing="false" onAction="#loginAccount" prefHeight="40.0" prefWidth="220.0" styleClass="btn-1" stylesheets="@../design/Styles.css" text="Sign In" />
                   <ComboBox fx:id="login_user" layoutX="450.0" layoutY="419.0" onAction="#switchPage" prefWidth="150.0" promptText="Select User" stylesheets="@../design/Styles.css">

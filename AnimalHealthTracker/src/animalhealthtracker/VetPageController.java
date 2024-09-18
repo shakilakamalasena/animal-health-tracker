@@ -90,7 +90,6 @@ public class VetPageController implements Initializable {
 
     @FXML
     private TextField register_username;
-    
 
     // DATABASE CONNECTIVITY
     private Connection connect;
@@ -100,24 +99,26 @@ public class VetPageController implements Initializable {
     private final AlertMessage alert = new AlertMessage();
 
     private final String[] listGender = {"Male", "Female", "Others"};
+
     @FXML
     public void registerGenderList() {
         List<String> listG = new ArrayList<>();
 
-        for(String data: listGender) {
+        for (String data : listGender) {
             listG.add(data);
         }
 
         ObservableList listData = FXCollections.observableArrayList(listG);
         register_gender.setItems(listData);
     }
-    
+
     private final String[] listSpecialization = {"Large/Small", "Avian & Exotic", "Wildlife", "Surgery", "Pathology", "Others"};
+
     @FXML
     public void registerSpecializationList() {
         List<String> listS = new ArrayList<>();
 
-        for(String data: listSpecialization) {
+        for (String data : listSpecialization) {
             listS.add(data);
         }
 
@@ -125,17 +126,31 @@ public class VetPageController implements Initializable {
         register_specialization.setItems(listData);
     }
     
+    // FILLS THE ALL PASSWORD TEXTFIELDS
+    public void settingTexts() { 
+        if (!login_checkBtn.isSelected()) {
+            login_showPassword.setText(login_password.getText());
+        } else {
+            login_password.setText(login_showPassword.getText());
+        }
+    }
+
     @FXML
     public void loginAccount() {
+        
+        settingTexts();
 
         if (login_username.getText().isEmpty() || login_password.getText().isEmpty()) {
-            alert.errorMessage("Incorrect Username/ Password");
+            alert.errorMessage("Incorrect Username/ Password empty");
         } else {
             String sql = "SELECT * FROM vet WHERE username = ? AND password = ?";
 
             connect = Database.connectDB();
 
             try {
+                
+//                settingTexts();
+                
                 if (!login_showPassword.isVisible()) {
                     if (!login_showPassword.getText().equals(login_password.getText())) {
                         login_showPassword.setText(login_password.getText());
@@ -155,35 +170,34 @@ public class VetPageController implements Initializable {
                     getData.username = login_username.getText();
                     //IF THE ENTERED USERNAME AND PASSWORD ARE CORRECT
                     alert.successMessage("Login Successfully!");
-                    
+
                     //GO TO VET MAIN FORM IF THE CREDINTIALS ARE OK
                     Parent root = FXMLLoader.load(getClass().getResource("VetMainForm.fxml"));
                     Stage stage = new Stage();
 
                     stage.setTitle("Animal Health Tracker | Veterinarian portal");
-                    
+
                     stage.setMinWidth(1400);
                     stage.setMinHeight(750);
-                    
+
                     stage.setScene(new Scene(root));
                     stage.show();
 
                     //TO CLOSE THE VET LOGIN PAGE
                     login_loginBtn.getScene().getWindow().hide();
-                    
+
                 } else {
                     //IF THE ENTERED USERNAME OR PASSWORD IS INCORRECT
                     alert.errorMessage("Incorrect Username/ Password");
                 }
-                
+
                 connect.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            
-            
+
         }
-        
+
     }
 
     @FXML
@@ -204,12 +218,12 @@ public class VetPageController implements Initializable {
     @FXML
     public void registerAccount() {
 
-        if (register_fname.getText().isEmpty() 
+        if (register_fname.getText().isEmpty()
                 || register_lname.getText().isEmpty()
                 || register_gender.getSelectionModel().getSelectedItem() == null
                 || register_phone.getText().isEmpty()
                 || register_specialization.getSelectionModel().getSelectedItem() == null
-                || register_username.getText().isEmpty() 
+                || register_username.getText().isEmpty()
                 || register_password.getText().isEmpty()) {
             alert.errorMessage("Please fill all blank fields");
         } else {
@@ -242,7 +256,7 @@ public class VetPageController implements Initializable {
 
                     Date date = new Date();
                     java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-                    
+
                     prepare = connect.prepareStatement(insertData);
                     prepare.setString(1, register_fname.getText());
                     prepare.setString(2, register_lname.getText());
@@ -262,7 +276,6 @@ public class VetPageController implements Initializable {
                     login_form.setVisible(true);
                     register_form.setVisible(false);
 
-                    
                     connect.close();
                 }
 

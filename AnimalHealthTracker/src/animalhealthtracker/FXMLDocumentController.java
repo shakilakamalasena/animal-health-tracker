@@ -95,7 +95,19 @@ public class FXMLDocumentController implements Initializable {
 
     private AlertMessage alert = new AlertMessage();
 
+    // FILLS THE ALL PASSWORD TEXTFIELDS
+    public void settingTexts() {
+        if (!login_checkBtn.isSelected()) {
+            login_showPassword.setText(login_password.getText());
+        } else {
+            login_password.setText(login_showPassword.getText());
+        }
+    }
+
     public void loginAccount() {
+        
+        settingTexts();
+        
         if (login_username.getText().isEmpty() || login_password.getText().isEmpty()) {
             alert.errorMessage("Incorrect Username/ Password");
         } else {
@@ -163,8 +175,20 @@ public class FXMLDocumentController implements Initializable {
             login_password.setVisible(true);
         }
     }
+    
+    // FILLS THE ALL PASSWORD TEXTFIELDS IN REGISTER WINDOW
+    public void settingTextsReg() { 
+        if (!register_checkBox.isSelected()) {
+            register_showPassword.setText(register_password.getText());
+        } else {
+            register_password.setText(register_showPassword.getText());
+        }
+    }
 
     public void registerAccount() {
+        
+        settingTextsReg();
+        
         if (register_email.getText().isEmpty() || register_username.getText().isEmpty() || register_password.getText().isEmpty()) {
             alert.errorMessage("Please fill all blank fields");
         } else {
