@@ -29,6 +29,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 /**
  *
  * @author Shakila Kamalasena
@@ -97,7 +99,7 @@ public class FXMLDocumentController implements Initializable {
         if (login_username.getText().isEmpty() || login_password.getText().isEmpty()) {
             alert.errorMessage("Incorrect Username/ Password");
         } else {
-            String sql = "SELECT * FROM admin WHERE username = ? AND password = ?";
+            String sql = "SELECT * FROM admin WHERE username = ?";
 
             connect = Database.connectDB();
 
@@ -114,26 +116,32 @@ public class FXMLDocumentController implements Initializable {
 
                 prepare = connect.prepareStatement(sql);
                 prepare.setString(1, login_username.getText());
-                prepare.setString(2, login_password.getText());
                 result = prepare.executeQuery();
 
                 if (result.next()) {
-                    getData.username = login_username.getText();
-                    
-                    //IF THE ENTERED USERNAME AND PASSWORD ARE CORRECT
-                    alert.successMessage("Login Successfully!");
 
-                    //GO TO ADMIN MAIN FORM IF THE CREDINTIALS ARE OK
-                    Parent root = FXMLLoader.load(getClass().getResource("AdminMainForm.fxml"));
-                    Stage stage = new Stage();
+                    String storedHashedPassword = result.getString("password"); // GET THE HASHED PASSWORD FROM DB
 
-                    stage.setTitle("Animal Health Tracker | Admin portal");
-                    stage.setScene(new Scene(root));
+                    // VERIFY THE ENTERED PASSWORD WITH THE HASHED PASSWORD
+                    if (BCrypt.checkpw(login_password.getText(), storedHashedPassword)) {
+                        getData.username = login_username.getText();
 
-                    stage.show();
+                        // IF THE ENTERD CREDENTIALS ARE CORRECT
+                        alert.successMessage("Login Successfully!");
 
-                    //TO CLOSE THE ADMIN LOGIN PAGE
-                    login_loginBtn.getScene().getWindow().hide();
+                        // GO TO ADMIN MAIN FORM
+                        Parent root = FXMLLoader.load(getClass().getResource("AdminMainForm.fxml"));
+                        Stage stage = new Stage();
+                        stage.setTitle("Animal Health Tracker | Admin portal");
+                        stage.setScene(new Scene(root));
+                        stage.show();
+
+                        // TO CLOSE THE ADMIN LOGIN PAGE
+                        login_loginBtn.getScene().getWindow().hide();
+                    } else {
+                        // IF THE PASSWORD IS CORRECT
+                        alert.errorMessage("Incorrect Username/ Password");
+                    }
                 } else {
                     //IF THE ENTERED USERNAME OR PASSWORD IS INCORRECT
                     alert.errorMessage("Incorrect Username/ Password");
@@ -184,13 +192,18 @@ public class FXMLDocumentController implements Initializable {
                 } else if (register_password.getText().length() < 8) {
                     alert.errorMessage("Password must be atleast 8 characters");
                 } else {
+
+                    // HASH PASSWORD USING BCRYPT
+                    String plainPassword = register_password.getText();
+                    String hashedPassword = BCrypt.hashpw(plainPassword, BCrypt.gensalt());
+
                     //INSERTING USERDATA TO THE DATABASE
                     String insertData = "INSERT INTO admin(email, username, password) VALUES(?, ?, ?)";
 
                     prepare = connect.prepareStatement(insertData);
                     prepare.setString(1, register_email.getText());
                     prepare.setString(2, register_username.getText());
-                    prepare.setString(3, register_password.getText());
+                    prepare.setString(3, hashedPassword);
 
                     prepare.executeUpdate();
 
